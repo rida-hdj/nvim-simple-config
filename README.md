@@ -21,7 +21,6 @@ This renames your current Neovim folder to nvim_backup so you can restore it any
 Clone the repository into your Neovim config directory:
 
 ```bash
-Copy code
 git clone --depth 1 https://github.com/rida-hdj/nvim-simple-config.git ~/.config/nvim
 ```
 Open Neovim
