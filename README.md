@@ -18,7 +18,7 @@ mv ~/.config/nvim ~/.config/nvim_backup
 ```
 This renames your current Neovim folder to nvim_backup so you can restore it anytime.
 
-Installation
+## Installation
 Clone the repository into your Neovim config directory:
 
 ```bash
