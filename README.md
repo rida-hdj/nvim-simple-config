@@ -8,7 +8,6 @@ A simple and minimal Neovim configuration.
 - LSP (Language Server Protocol) support
 - Diagnostics (errors, warnings, navigation)
 - Key mappings for efficient editing
-- Easy to customize
 
 ## Backup Existing Config
 Before installing this configuration, it's recommended to back up your existing Neovim configuration:
