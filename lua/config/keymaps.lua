@@ -56,7 +56,7 @@ map("n", "<C-S-q>", ":x<CR>", opts)
 -- =============================
 
 -- Core LSP actions
-map("n", "<C-r>", vim.lsp.buf.rename, opts)
+map("n", "<C-n>", vim.lsp.buf.rename, opts)
 map("n", "<C-a>", vim.lsp.buf.code_action, opts)
 map("n", "<C-f>", function()
   vim.lsp.buf.format({ async = true })
