@@ -90,7 +90,6 @@ return {
 
             cmp.setup({
                 mapping = cmp.mapping.preset.insert({
-                    -- اختيار الاقتراح الحالي
                     ["<CR>"] = cmp.mapping.confirm({ select = true }),
                     ["<Tab>"] = cmp.mapping.confirm({ select = true }),
                     ["<S-Tab>"] = cmp.mapping.select_prev_item(),
