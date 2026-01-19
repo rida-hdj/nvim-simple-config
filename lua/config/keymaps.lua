@@ -1,21 +1,23 @@
 -- keymaps.lua
--- Basic and friendly Neovim keymaps
+-- Ctrl-only, fast and ergonomic Neovim keymaps
+-- No leader key is used at all
 
 local map = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
 -- =============================
--- SPLITS
+-- WINDOW / SPLITS
 -- =============================
--- Split windows
-map("n", "<leader>sv", ":vsplit<CR>", opts) -- vertical split
-map("n", "<leader>sh", ":split<CR>", opts)  -- horizontal split
+
+-- Create splits
+map("n", "<C-s>v", ":vsplit<CR>", opts) -- vertical split
+map("n", "<C-s>h", ":split<CR>", opts)  -- horizontal split
 
 -- Navigate splits
 map("n", "<C-h>", "<C-w>h", opts)
-map("n", "<C-l>", "<C-w>l", opts)
 map("n", "<C-j>", "<C-w>j", opts)
 map("n", "<C-k>", "<C-w>k", opts)
+map("n", "<C-l>", "<C-w>l", opts)
 
 -- Resize splits
 map("n", "<C-Up>", ":resize +2<CR>", opts)
@@ -24,50 +26,64 @@ map("n", "<C-Left>", ":vertical resize +4<CR>", opts)
 map("n", "<C-Right>", ":vertical resize -4<CR>", opts)
 
 -- Close split
-map("n", "<leader>sc", ":close<CR>", opts)
+map("n", "<C-s>c", ":close<CR>", opts)
 
 -- =============================
 -- TERMINAL
 -- =============================
--- Open terminal splits
-map("n", "<leader>tt", function()
-    local height = math.floor(vim.o.lines * 0.25)
-    vim.cmd(height .. "split")
-    vim.cmd("terminal")
-end, opts)
-map("n", "<leader>tv", ":vsplit | terminal<CR>", opts)
 
--- Better terminal mode exit
+-- Open terminal (horizontal)
+map("n", "<C-t>", function()
+  local height = math.floor(vim.o.lines * 0.25)
+  vim.cmd(height .. "split")
+  vim.cmd("terminal")
+end, opts)
+
+-- Open terminal (vertical)
+map("n", "<C-S-t>", ":vsplit | terminal<CR>", opts)
+
+-- Exit terminal mode
 map("t", "<Esc>", [[<C-\><C-n>]], opts)
+
+-- =============================
+-- FILE ACTIONS
+-- =============================
+
+-- Save / Quit
+map("n", "<C-s>", ":w<CR>", opts)
+map("n", "<C-q>", ":q<CR>", opts)
+map("n", "<C-S-q>", ":x<CR>", opts)
 
 -- =============================
 -- LSP
 -- =============================
-map("n", "<leader>rn", vim.lsp.buf.rename, opts)
-map("n", "<leader>ca", vim.lsp.buf.code_action, opts)
-map("n", "<leader>ff", function() vim.lsp.buf.format({ async = true }) end, opts)
+
+-- Core LSP actions
+map("n", "<C-r>", vim.lsp.buf.rename, opts)
+map("n", "<C-a>", vim.lsp.buf.code_action, opts)
+map("n", "<C-f>", function()
+  vim.lsp.buf.format({ async = true })
+end, opts)
 
 -- Diagnostics
 map("n", "[g", vim.diagnostic.goto_prev, opts)
 map("n", "]g", vim.diagnostic.goto_next, opts)
-map("n", "<leader>e", vim.diagnostic.open_float, opts)
+map("n", "<C-e>", vim.diagnostic.open_float, opts)
+
 -- =============================
--- BASIC EDITING
+-- EDITING
 -- =============================
-map("n", "<leader>w", ":w<CR>", opts) -- save
-map("n", "<leader>q", ":q<CR>", opts) -- quit
-map("n", "<leader>x", ":x<CR>", opts) -- save & quit
 
--- Better indenting
-map("v", "h", "<gv", opts)
-map("v", "l", ">gv", opts)
-
--- Move selected lines
-map("v", "J", ":m '>+1<CR>gv=gv", opts)
-map("v", "K", ":m '<-2<CR>gv=gv", opts)
-
--- Keep search centered
+-- Better search navigation
 map("n", "n", "nzzzv", opts)
 map("n", "N", "Nzzzv", opts)
+
+-- Visual mode: indent
+map("v", "<C-h>", "<gv", opts)
+map("v", "<C-l>", ">gv", opts)
+
+-- Visual mode: move lines
+map("v", "<C-j>", ":m '>+1<CR>gv=gv", opts)
+map("v", "<C-k>", ":m '<-2<CR>gv=gv", opts)
 
 return true
