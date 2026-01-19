@@ -39,9 +39,6 @@ map("n", "<C-t>", function()
   vim.cmd("terminal")
 end, opts)
 
--- Open terminal (vertical)
-map("n", "<C-S-t>", ":vsplit | terminal<CR>", opts)
-
 -- Exit terminal mode
 map("t", "<Esc>", [[<C-\><C-n>]], opts)
 
