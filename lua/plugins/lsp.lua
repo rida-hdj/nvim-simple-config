@@ -89,6 +89,28 @@ return {
             luasnip.config.setup({})
 
             cmp.setup({
+                mapping = cmp.mapping.preset.insert({
+                    -- اختيار الاقتراح الحالي
+                    ["<CR>"] = cmp.mapping.confirm({ select = true }),
+                    ["<Tab>"] = cmp.mapping.confirm({ select = true }),
+                    ["<S-Tab>"] = cmp.mapping.select_prev_item(),
+
+                    ["<Down>"] = cmp.mapping(function(fallback)
+                        fallback()
+                    end, { "i", "s" }),
+
+                    ["<Up>"] = cmp.mapping(function(fallback)
+                        fallback()
+                    end, { "i", "s" }),
+
+                    ["<C-j>"] = cmp.mapping(function(fallback)
+                        fallback()
+                    end, { "i", "s" }),
+
+                    ["<C-k>"] = cmp.mapping(function(fallback)
+                        fallback()
+                    end, { "i", "s" }),
+                }),
                 snippet = {
                     expand = function(args)
                         luasnip.lsp_expand(args.body)
@@ -111,12 +133,6 @@ return {
                     }),
                     documentation = false,
                 },
-
-                mapping = cmp.mapping.preset.insert({
-                    ["<CR>"] = cmp.mapping.confirm({ select = true }),
-                    ["<Tab>"] = cmp.mapping.confirm({ select = true }),
-                    ["<S-Tab>"] = cmp.mapping.select_prev_item(),
-                }),
 
                 sources = {
                     { name = "luasnip",  priority = 1000 },
