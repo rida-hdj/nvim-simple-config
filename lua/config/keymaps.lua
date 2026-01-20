@@ -50,6 +50,19 @@ map("t", "<Esc>", [[<C-\><C-n>]], opts)
 map("n", "<C-s>", ":w<CR>", opts)
 map("n", "<C-q>", ":q<CR>", opts)
 map("n", "<C-S-q>", ":x<CR>", opts)
+-- =============================
+-- Telescope
+-- =============================
+local ok, telescope = pcall(require, 'telescope.builtin')
+if not ok then
+  return
+end
+
+-- Keymaps
+vim.keymap.set('n', '<leader>f', telescope.find_files, { desc = 'Telescope find files' })
+vim.keymap.set('n', '<leader>g', telescope.live_grep, { desc = 'Telescope live grep' })
+vim.keymap.set('n', '<leader>b', telescope.buffers, { desc = 'Telescope buffers' })
+vim.keymap.set('n', '<leader>h', telescope.help_tags, { desc = 'Telescope help tags' })
 
 -- =============================
 -- LSP

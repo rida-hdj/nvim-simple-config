@@ -150,17 +150,4 @@ return {
         event = "InsertEnter",
         config = true,
     },
-
-    -- =========================================================
-    -- EMMET (he -> <head>)
-    -- =========================================================
-    {
-        "mattn/emmet-vim",
-        ft = {
-            "html",
-            "css",
-            "javascriptreact",
-            "typescriptreact",
-        },
-    },
 }
