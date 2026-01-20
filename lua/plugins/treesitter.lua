@@ -1,6 +1,6 @@
 return {
 	'nvim-treesitter/nvim-treesitter',
-	buils = ":TSUpdate",
+	build = ":TSUpdate",
 	config = function()
 		local configs = require("nvim-treesitter.configs")
 		configs.setup({
@@ -8,7 +8,6 @@ return {
 	enable = true,
 	},
 	indent = { enable = true },
-	autotage = { enable = true },
 	ensure_installed = {
 	-- Low level
 	    "c", "cpp", "rust", "asm",
