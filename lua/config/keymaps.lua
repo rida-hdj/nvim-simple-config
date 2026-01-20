@@ -20,10 +20,10 @@ map("n", "<C-k>", "<C-w>k", opts)
 map("n", "<C-l>", "<C-w>l", opts)
 
 -- Resize splits
-map("n", "<C-Up>", ":resize +2<CR>", opts)
-map("n", "<C-Down>", ":resize -2<CR>", opts)
-map("n", "<C-Left>", ":vertical resize +4<CR>", opts)
-map("n", "<C-Right>", ":vertical resize -4<CR>", opts)
+map("n", "<C-S-Up>", ":resize +2<CR>", opts)
+map("n", "<C-S-Down>", ":resize -2<CR>", opts)
+map("n", "<C-S-Left>", ":vertical resize +4<CR>", opts)
+map("n", "<C-S-Right>", ":vertical resize -4<CR>", opts)
 
 -- Close split
 map("n", "<C-s>c", ":close<CR>", opts)
