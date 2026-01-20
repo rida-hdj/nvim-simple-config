@@ -98,7 +98,7 @@ Open Neovim
 
 ## Telescope (Fuzzy Finder)
 
-> These shortcuts require **Telescope** to be installed.
+> These shortcuts require **fd** to be installed.
 
 | Shortcut     | Action                  |
 | ------------ | ----------------------- |
@@ -110,6 +110,7 @@ Open Neovim
 ---
 
 ## LSP (Language Server Protocol)
+The LSP needs to be installed on the system to work
 
 ### Core LSP Actions
 
