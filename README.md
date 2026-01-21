@@ -124,7 +124,7 @@ The LSP needs to be installed on the system to work
 
 | Shortcut        | Action                                           |
 | --------------- | ------------------------------------------------ |
-| `Tab / Enter`   | Confirm the selected item in the completion menu |
+| `Tab`           | Confirm the selected item in the completion menu |
 | `Shift + Tab`   | Move to the next item in the completion menu     |
 
 ---
