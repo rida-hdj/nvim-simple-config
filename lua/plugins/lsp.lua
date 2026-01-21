@@ -87,12 +87,12 @@ return {
 
             require("luasnip.loaders.from_vscode").lazy_load()
             luasnip.config.setup({})
-
+            vim.api.nvim_set_hl(0, "CmpNormal", { bg = "#32364e" })
             cmp.setup({
                 mapping = cmp.mapping.preset.insert({
                     ["<CR>"] = cmp.mapping.confirm({ select = true }),
                     ["<Tab>"] = cmp.mapping.confirm({ select = true }),
-                    ["<S-Tab>"] = cmp.mapping.select_prev_item(),
+                    ["<S-Tab>"] = cmp.mapping.select_next_item(),
 
                     ["<Down>"] = cmp.mapping(function(fallback)
                         fallback()
@@ -124,13 +124,15 @@ return {
                     end,
                 },
 
-
                 window = {
                     completion = cmp.config.window.bordered({
                         max_width = 20,
                         max_height = 8,
+                        winhighlight = "Normal:CmpNormal,FloatBorder:FloatBorder",
                     }),
-                    documentation = false,
+                    documentation = cmp.config.window.bordered({
+                        winhighlight = "Normal:CmpNormal,FloatBorder:FloatBorder",
+                    }),
                 },
 
                 sources = {

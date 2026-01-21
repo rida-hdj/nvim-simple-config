@@ -1,3 +1,4 @@
+
 return {
     -- =============================
     -- TOKYONIGHT
@@ -21,9 +22,6 @@ return {
                 "Normal",
                 "NormalFloat",
                 "SignColumn",
-                "EndOfBuffer",
-                "NeoTreeNormal",
-                "NeoTreeNormalNC",
             }
 
             for _, g in ipairs(groups) do
