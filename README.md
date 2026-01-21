@@ -120,6 +120,12 @@ The LSP needs to be installed on the system to work
 | `Ctrl + a` | Code actions  |
 | `Ctrl + f` | Format buffer |
 
+### Completion menu
+| Shortcut        | Action                                           |
+| ---------------   ------------------------------------------------ |
+|`Tab / Enetr     | Confirm the selected item in the completion menu |
+| `Shift + Tab`   | Move to the next item in the completion menu     |
+
 ---
 
 ### Diagnostics
