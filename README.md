@@ -53,12 +53,12 @@ Open Neovim
 
 ### Resize Splits
 
-| Shortcut           | Action                |
-| ------------------ | --------------------- |
-| `Ctrl + Shift + ↑` | Increase split height |
-| `Ctrl + Shift + ↓` | Decrease split height |
-| `Ctrl + Shift + ←` | Increase split width  |
-| `Ctrl + Shift + →` | Decrease split width  |
+| shortcuts | Action                |
+| --------- | --------------------- |
+| `Alt + ↑` | Increase split height |
+| `Alt + ↓` | Decrease split height |
+| `Alt + ←` | Increase split width  |
+| `Alt + →` | Decrease split width  |
 
 ---
 
