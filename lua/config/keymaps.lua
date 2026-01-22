@@ -1,7 +1,3 @@
--- keymaps.lua
--- Ctrl-only, fast and ergonomic Neovim keymaps
--- No leader key is used at all
-
 local map = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
@@ -63,29 +59,6 @@ vim.keymap.set('n', '<leader>f', telescope.find_files, { desc = 'Telescope find 
 vim.keymap.set('n', '<leader>g', telescope.live_grep, { desc = 'Telescope live grep' })
 vim.keymap.set('n', '<leader>b', telescope.buffers, { desc = 'Telescope buffers' })
 vim.keymap.set('n', '<leader>h', telescope.help_tags, { desc = 'Telescope help tags' })
-
--- =============================
--- Oil (file explorer)
--- =============================
-vim.keymap.set("n", "<C-.>", function()
-    local oil = require("oil")
-    local wins = vim.api.nvim_list_wins()
-
-    for _, win in ipairs(wins) do
-        local buf = vim.api.nvim_win_get_buf(win)
-        if vim.bo[buf].filetype == "oil" then
-            if #wins == 1 then
-                return
-            end
-
-            vim.api.nvim_win_close(win, true)
-            return
-        end
-    end
-
-    vim.cmd("topleft 30vsplit")
-    oil.open()
-end, { desc = "Toggle Oil (left, safe)" })
 
 -- =============================
 -- LSP
