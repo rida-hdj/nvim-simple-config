@@ -100,12 +100,19 @@ Open Neovim
 
 > These shortcuts require **fd** to be installed.
 
+| Shortcut    | Action                  |
+| ----------- | ----------------------- |
+| `space + f` | Find files              |
+| `space + g` | Live grep (search text) |
+| `space + b` | List open buffers       |
+| `space + h` | Search help tags        |
+
+---
+
+## Oil (file explorer)
 | Shortcut     | Action                  |
 | ------------ | ----------------------- |
-| `Leader + f` | Find files              |
-| `Leader + g` | Live grep (search text) |
-| `Leader + b` | List open buffers       |
-| `Leader + h` | Search help tags        |
+| `Ctrl + .`   | open Oil window         |
 
 ---
 

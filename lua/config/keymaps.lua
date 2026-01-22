@@ -20,10 +20,10 @@ map("n", "<C-k>", "<C-w>k", opts)
 map("n", "<C-l>", "<C-w>l", opts)
 
 -- Resize splits
-map("n", "<C-S-Up>", ":resize +2<CR>", opts)
-map("n", "<C-S-Down>", ":resize -2<CR>", opts)
-map("n", "<C-S-Left>", ":vertical resize +4<CR>", opts)
-map("n", "<C-S-Right>", ":vertical resize -4<CR>", opts)
+map("n", "<M-Up>", ":resize +2<CR>", opts)
+map("n", "<M-Down>", ":resize -2<CR>", opts)
+map("n", "<M-Left>", ":vertical resize +4<CR>", opts)
+map("n", "<M-Right>", ":vertical resize -4<CR>", opts)
 
 -- Close split
 map("n", "<C-s>c", ":close<CR>", opts)
@@ -34,9 +34,9 @@ map("n", "<C-s>c", ":close<CR>", opts)
 
 -- Open terminal (horizontal)
 map("n", "<C-t>", function()
-  local height = math.floor(vim.o.lines * 0.25)
-  vim.cmd(height .. "split")
-  vim.cmd("terminal")
+    local height = math.floor(vim.o.lines * 0.25)
+    vim.cmd(height .. "split")
+    vim.cmd("terminal")
 end, opts)
 
 -- Exit terminal mode
@@ -47,7 +47,7 @@ map("t", "<Esc>", [[<C-\><C-n>]], opts)
 -- =============================
 
 -- Save / Quit
-map("n", "<C-s>", ":w<CR>", opts)
+map("n", "<C-w>", ":w<CR>", opts)
 map("n", "<C-q>", ":q<CR>", opts)
 map("n", "<C-S-q>", ":x<CR>", opts)
 -- =============================
@@ -55,7 +55,7 @@ map("n", "<C-S-q>", ":x<CR>", opts)
 -- =============================
 local ok, telescope = pcall(require, 'telescope.builtin')
 if not ok then
-  return
+    return
 end
 
 -- Keymaps
@@ -65,6 +65,29 @@ vim.keymap.set('n', '<leader>b', telescope.buffers, { desc = 'Telescope buffers'
 vim.keymap.set('n', '<leader>h', telescope.help_tags, { desc = 'Telescope help tags' })
 
 -- =============================
+-- Oil (file explorer)
+-- =============================
+vim.keymap.set("n", "<C-.>", function()
+    local oil = require("oil")
+    local wins = vim.api.nvim_list_wins()
+
+    for _, win in ipairs(wins) do
+        local buf = vim.api.nvim_win_get_buf(win)
+        if vim.bo[buf].filetype == "oil" then
+            if #wins == 1 then
+                return
+            end
+
+            vim.api.nvim_win_close(win, true)
+            return
+        end
+    end
+
+    vim.cmd("topleft 30vsplit")
+    oil.open()
+end, { desc = "Toggle Oil (left, safe)" })
+
+-- =============================
 -- LSP
 -- =============================
 
@@ -72,7 +95,7 @@ vim.keymap.set('n', '<leader>h', telescope.help_tags, { desc = 'Telescope help t
 map("n", "<C-n>", vim.lsp.buf.rename, opts)
 map("n", "<C-a>", vim.lsp.buf.code_action, opts)
 map("n", "<C-f>", function()
-  vim.lsp.buf.format({ async = true })
+    vim.lsp.buf.format({ async = true })
 end, opts)
 
 -- Diagnostics
