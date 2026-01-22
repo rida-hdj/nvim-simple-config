@@ -109,10 +109,10 @@ Open Neovim
 
 ---
 
-## Oil (file explorer)
-| Shortcut     | Action                  |
-| ------------ | ----------------------- |
-| `Ctrl + .`   | open Oil window         |
+## Neotree (file explorer)
+| Shortcut     | Action                    |
+| ------------ | ------------------------- |
+| `Ctrl + .`   | Open/Close Neotree window |
 
 ---
 
