@@ -1,171 +1,190 @@
 return {
-  -- =========================================================
-  -- LSP
-  -- =========================================================
-  {
-    "neovim/nvim-lspconfig",
-    event = { "BufReadPre", "BufNewFile" },
+    -- =========================================================
+    -- LSP
+    -- =========================================================
+    {
+        "neovim/nvim-lspconfig",
+        event = { "BufReadPre", "BufNewFile" },
 
-    dependencies = {
-      "hrsh7th/cmp-nvim-lsp",
+        dependencies = {
+            "hrsh7th/cmp-nvim-lsp",
+            "hrsh7th/cmp-path",
+        },
+
+        config = function()
+            local capabilities =
+                require("cmp_nvim_lsp").default_capabilities()
+
+            -- HTML
+            vim.lsp.config("html", {
+                capabilities = capabilities,
+            })
+
+            -- CSS
+            vim.lsp.config("cssls", {
+                capabilities = capabilities,
+            })
+
+            -- JavaScript / TypeScript
+            vim.lsp.config("ts_ls", {
+                capabilities = capabilities,
+            })
+
+            -- Lua
+            vim.lsp.config("lua_ls", {
+                capabilities = capabilities,
+                settings = {
+                    Lua = {
+                        diagnostics = {
+                            globals = { "vim" },
+                        },
+                    },
+                },
+            })
+
+            -- Python
+            vim.lsp.config("pyright", {
+                capabilities = capabilities,
+            })
+
+            -- Rust
+            vim.lsp.config("rust_analyzer", {
+                capabilities = capabilities,
+            })
+
+            -- C / C++
+            vim.lsp.config("clangd", {
+                capabilities = capabilities,
+            })
+
+            -- Nix
+            vim.lsp.config("nil_ls", {
+                capabilities = capabilities,
+            })
+
+            vim.lsp.enable({
+                "html",
+                "cssls",
+                "ts_ls",
+                "lua_ls",
+                "pyright",
+                "rust_analyzer",
+                "clangd",
+                "nil_ls",
+            })
+        end,
     },
 
-    config = function()
-      local capabilities =
-        require("cmp_nvim_lsp").default_capabilities()
+    -- =========================================================
+    -- AUTOCOMPLETE
+    -- =========================================================
+    {
+        "hrsh7th/nvim-cmp",
+        event = "InsertEnter",
 
-      -- HTML
-      vim.lsp.config("html", {
-        capabilities = capabilities,
-      })
-
-      -- CSS
-      vim.lsp.config("cssls", {
-        capabilities = capabilities,
-      })
-
-      -- JavaScript / TypeScript
-      vim.lsp.config("ts_ls", {
-        capabilities = capabilities,
-      })
-
-      -- Lua
-      vim.lsp.config("lua_ls", {
-        capabilities = capabilities,
-        settings = {
-          Lua = {
-            diagnostics = {
-              globals = { "vim" },
-            },
-          },
+        dependencies = {
+            "hrsh7th/cmp-nvim-lsp",
+            "hrsh7th/cmp-buffer",
+            "L3MON4D3/LuaSnip",
+            "rafamadriz/friendly-snippets",
         },
-      })
 
-      -- Python
-      vim.lsp.config("pyright", {
-        capabilities = capabilities,
-      })
+        config = function()
+            local cmp = require("cmp")
+            local luasnip = require("luasnip")
 
-      -- Rust
-      vim.lsp.config("rust_analyzer", {
-        capabilities = capabilities,
-      })
+            require("luasnip.loaders.from_vscode").lazy_load()
+            luasnip.config.setup({})
 
-      -- C / C++
-      vim.lsp.config("clangd", {
-        capabilities = capabilities,
-      })
+            vim.api.nvim_set_hl(0, "CmpNormal", { bg = "#32364e" })
 
-      -- Nix
-      vim.lsp.config("nil_ls", {
-        capabilities = capabilities,
-      })
+            cmp.setup({
+                mapping = cmp.mapping.preset.insert({
+                    ["<Tab>"] = cmp.mapping(function(fallback)
+                        if cmp.visible() then
+                            cmp.confirm({ select = true })
+                            cmp.complete()
+                        else
+                            fallback()
+                        end
+                    end, { "i", "s" }),
 
-      vim.lsp.enable({
-        "html",
-        "cssls",
-        "ts_ls",
-        "lua_ls",
-        "pyright",
-        "rust_analyzer",
-        "clangd",
-        "nil_ls",
-      })
-    end,
-  },
+                    ["<S-Tab>"] = cmp.mapping.select_next_item(),
 
-  -- =========================================================
-  -- AUTOCOMPLETE
-  -- =========================================================
-  {
-    "hrsh7th/nvim-cmp",
-    event = "InsertEnter",
+                    ["<Down>"] = cmp.mapping(function(fallback)
+                        fallback()
+                    end, { "i", "s" }),
 
-    dependencies = {
-      "hrsh7th/cmp-nvim-lsp",
-      "hrsh7th/cmp-buffer",
-      "L3MON4D3/LuaSnip",
-      "rafamadriz/friendly-snippets",
+                    ["<Up>"] = cmp.mapping(function(fallback)
+                        fallback()
+                    end, { "i", "s" }),
+
+                    ["<C-j>"] = cmp.mapping(function(fallback)
+                        fallback()
+                    end, { "i", "s" }),
+
+                    ["<C-k>"] = cmp.mapping(function(fallback)
+                        fallback()
+                    end, { "i", "s" }),
+                }),
+
+                snippet = {
+                    expand = function(args)
+                        luasnip.lsp_expand(args.body)
+                    end,
+                },
+
+                formatting = {
+                    fields = { "abbr" },
+                    format = function(_, item)
+                        item.kind = ""
+                        item.menu = ""
+                        return item
+                    end,
+                },
+
+                window = {
+                    completion = cmp.config.window.bordered({
+                        max_width = 20,
+                        max_height = 8,
+                        winhighlight = "Normal:CmpNormal,FloatBorder:FloatBorder",
+                    }),
+                    documentation = cmp.config.window.bordered({
+                        winhighlight = "Normal:CmpNormal,FloatBorder:FloatBorder",
+                    }),
+                },
+
+
+                sources = {
+                    { name = "luasnip",  priority = 1000 },
+                    { name = "nvim_lsp", priority = 500 },
+                    {
+                        name = "path",
+                        priority = 750,
+                        option = {
+                            trailing_slash = true,
+                            label_trailing_slash = true,
+                        },
+                    },
+                    { name = "buffer", priority = 250 },
+                },
+
+
+            })
+        end,
     },
 
-    config = function()
-      local cmp = require("cmp")
-      local luasnip = require("luasnip")
+    -- =========================================================
+    -- HTML TAG AUTO CLOSE
+    -- =========================================================
+    {
+        "windwp/nvim-ts-autotag",
+        event = "InsertEnter",
 
-      require("luasnip.loaders.from_vscode").lazy_load()
-      luasnip.config.setup({})
-
-      vim.api.nvim_set_hl(0, "CmpNormal", { bg = "#32364e" })
-
-      cmp.setup({
-        mapping = cmp.mapping.preset.insert({
-          ["<Tab>"] = cmp.mapping.confirm({ select = true }),
-          ["<S-Tab>"] = cmp.mapping.select_next_item(),
-
-          ["<Down>"] = cmp.mapping(function(fallback)
-            fallback()
-          end, { "i", "s" }),
-
-          ["<Up>"] = cmp.mapping(function(fallback)
-            fallback()
-          end, { "i", "s" }),
-
-          ["<C-j>"] = cmp.mapping(function(fallback)
-            fallback()
-          end, { "i", "s" }),
-
-          ["<C-k>"] = cmp.mapping(function(fallback)
-            fallback()
-          end, { "i", "s" }),
-        }),
-
-        snippet = {
-          expand = function(args)
-            luasnip.lsp_expand(args.body)
-          end,
+        dependencies = {
+            "nvim-treesitter/nvim-treesitter",
         },
 
-        formatting = {
-          fields = { "abbr" },
-          format = function(_, item)
-            item.kind = ""
-            item.menu = ""
-            return item
-          end,
-        },
-
-        window = {
-          completion = cmp.config.window.bordered({
-            max_width = 20,
-            max_height = 8,
-            winhighlight = "Normal:CmpNormal,FloatBorder:FloatBorder",
-          }),
-          documentation = cmp.config.window.bordered({
-            winhighlight = "Normal:CmpNormal,FloatBorder:FloatBorder",
-          }),
-        },
-
-        sources = {
-          { name = "luasnip",  priority = 1000 },
-          { name = "nvim_lsp", priority = 500 },
-          { name = "buffer",   priority = 500 },
-        },
-      })
-    end,
-  },
-
-  -- =========================================================
-  -- HTML TAG AUTO CLOSE
-  -- =========================================================
-  {
-    "windwp/nvim-ts-autotag",
-    event = "InsertEnter",
-
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter",
+        config = true,
     },
-
-    config = true,
-  },
 }
-
