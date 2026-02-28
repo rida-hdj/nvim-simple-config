@@ -174,3 +174,8 @@ The LSP needs to be installed on the system to work
 | `Ctrl + k` | Move selection up   |
 
 ---
+
+```bash
+git clone --depth 1 https://github.com/rida-hdj/nvim-simple-config.git $env:LOCALAPPDATA\nvim
+```
+i don't use windows it should work maybe
