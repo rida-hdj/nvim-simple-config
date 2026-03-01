@@ -86,6 +86,22 @@ Open Neovim
 
 ---
 
+### Run code
+
+| Shortcut    | Actions      |
+| ----------- | ------------ |
+| `space + r` | Run the code |
+
+---
+
+### Lazygit
+
+| Shortcut     | Actions      |
+| ------------ | ------------ |
+| `space + lg` | Open Lazygit |
+
+---
+
 ## File Actions
 
 | Shortcut           | Action        |

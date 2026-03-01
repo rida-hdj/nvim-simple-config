@@ -4,30 +4,13 @@ return {
   -- =============================
   {
     "folke/tokyonight.nvim",
-
     lazy = false,
     priority = 1000,
 
     config = function()
-      require("tokyonight").setup({
-        transparent = true,
-        styles = {
-          sidebars = "transparent",
-          floats = "transparent",
-        },
-      })
+      require("tokyonight").setup({})
 
-      vim.cmd.colorscheme("tokyonight-storm")
-
-      local groups = {
-        "Normal",
-        "NormalFloat",
-        "SignColumn",
-      }
-
-      for _, g in ipairs(groups) do
-        vim.api.nvim_set_hl(0, g, { bg = "none" })
-      end
+      vim.cmd.colorscheme("tokyonight-night")
     end,
   },
 
@@ -62,10 +45,6 @@ return {
           lualine_z = { "location" },
         },
       })
-
-      -- Make lualine transparent
-      vim.api.nvim_set_hl(0, "StatusLine", { bg = "none" })
-      vim.api.nvim_set_hl(0, "StatusLineNC", { bg = "none" })
     end,
   },
 
@@ -74,7 +53,6 @@ return {
   -- =============================
   {
     "brenoprata10/nvim-highlight-colors",
-
     event = { "BufReadPost", "BufNewFile" },
 
     config = function()
@@ -82,4 +60,3 @@ return {
     end,
   },
 }
-
