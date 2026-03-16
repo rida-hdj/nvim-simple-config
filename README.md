@@ -102,6 +102,14 @@ Open Neovim
 
 ---
 
+### Render markdown
+
+| Shortcut     | Actions                        |
+|------------- | ------------------------------ |
+| `space + md` | Enable/Disable Markdown Render |
+
+---
+
 ## File Actions
 
 | Shortcut           | Action        |

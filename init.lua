@@ -11,6 +11,8 @@ vim.opt.cursorline = true
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 vim.opt.clipboard = "unnamedplus"
+vim.o.wrap = true
+vim.o.breakindent = true
 
 vim.api.nvim_create_autocmd("BufEnter", {
   callback = function()
