@@ -11,10 +11,12 @@ return {
                     { action = 'Telescope find_files', desc = " Find File", icon = " ", key = "1" },
                     { action = "ene | startinsert", desc = " New File", icon = " ", key = "2" },
                     { action = 'Telescope oldfiles', desc = " Recent Files", icon = " ", key = "3" },
-                    { action = 'Telescope live_grep', desc = " Find Text", icon = "󰱽 ", key = "4" },
-                    { action = 'LazyGit', desc = " LazyGit", icon = " ", key = "5" },
-                    { action = "Lazy", desc = " Lazy", icon = "󰒲 ", key = "6" },
-                    { action = function() vim.api.nvim_input("<cmd>qa<cr>") end, desc = " Quit", icon = "󰈆 ", key = "7" },
+                    { action = 'Telescope projects', desc = " Recent Projects", icon = " ", key = "4" },
+                    { action = 'Telescope live_grep', desc = " Find Text", icon = "󰱽 ", key = "5" },
+                    { action = 'LazyGit', desc = " LazyGit", icon = " ", key = "6" },
+                    { action = "Lazy", desc = " Lazy", icon = "󰒲 ", key = "7" },
+                    { action = 'Telescope keymaps', desc = " Keymaps", icon = " ", key = "8" },
+                    { action = function() vim.api.nvim_input("<cmd>qa<cr>") end, desc = " Quit", icon = "󰈆 ", key = "q" },
                 },
                 footer = function()
                     local stats = require("lazy").stats()

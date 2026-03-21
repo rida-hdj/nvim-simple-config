@@ -58,7 +58,7 @@ end
 vim.keymap.set('n', '<leader>f', telescope.find_files, { desc = 'Telescope find files' })
 vim.keymap.set('n', '<leader>g', telescope.live_grep, { desc = 'Telescope live grep' })
 vim.keymap.set('n', '<leader>b', telescope.buffers, { desc = 'Telescope buffers' })
-vim.keymap.set('n', '<leader>h', telescope.help_tags, { desc = 'Telescope help tags' })
+vim.keymap.set('n', '<leader>h', telescope.help_tags, { desc = 'Telescope help_tags' })
 
 -- =============================
 -- LSP
