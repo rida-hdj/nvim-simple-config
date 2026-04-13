@@ -56,7 +56,7 @@ Open Neovim
 | Shortcut       | Action           | Description                  |
 | -------------- | ---------------- | ---------------------------- |
 | `Space + v` | Vertical split   | Opens a new vertical split   |
-| `Space  + h` | Horizontal split | Opens a new horizontal split |
+| `Space + h` | Horizontal split | Opens a new horizontal split |
 
 ---
 
