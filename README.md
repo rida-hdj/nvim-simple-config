@@ -9,6 +9,26 @@ A simple and minimal Neovim configuration.
 - Diagnostics (errors, warnings, navigation)
 - Key mappings for efficient editing
 
+## Requirements
+### Install requirements
+- `git`
+- `Node.js`
+- `curl`
+- `unzip`
+- `gcc`
+- `make`
+- `fd`
+- `ripgrep`
+### LSP requirements
+- `lua_ls` -> lua
+- `clangd` -> C/C++
+- `pyright` -> python
+- `rust_analyzer` -> rust
+- `html` -> html
+- `cssls` -> css
+- `ts_ls` -> javascript/typescript
+- `nil_ls` -> nix
+
 ## Backup Existing Config
 Before installing this configuration, it's recommended to back up your existing Neovim configuration:
 
@@ -35,8 +55,8 @@ Open Neovim
 
 | Shortcut       | Action           | Description                  |
 | -------------- | ---------------- | ---------------------------- |
-| `Ctrl + s + v` | Vertical split   | Opens a new vertical split   |
-| `Ctrl + s + h` | Horizontal split | Opens a new horizontal split |
+| `Space + v` | Vertical split   | Opens a new vertical split   |
+| `Space  + h` | Horizontal split | Opens a new horizontal split |
 
 ---
 
@@ -62,14 +82,6 @@ Open Neovim
 
 ---
 
-### Close Split
-
-| Shortcut       | Action              |
-| -------------- | ------------------- |
-| `Ctrl + s + c` | Close current split |
-
----
-
 ## Integrated Terminal
 
 ### Open Terminal
@@ -90,7 +102,7 @@ Open Neovim
 
 | Shortcut    | Actions      |
 | ----------- | ------------ |
-| `space + r` | Run the code |
+| `Space + r` | Run the code |
 
 ---
 
@@ -98,7 +110,7 @@ Open Neovim
 
 | Shortcut     | Actions      |
 | ------------ | ------------ |
-| `space + lg` | Open Lazygit |
+| `Space + lg` | Open Lazygit |
 
 ---
 
@@ -106,7 +118,7 @@ Open Neovim
 
 | Shortcut     | Actions                        |
 |------------- | ------------------------------ |
-| `space + md` | Enable/Disable Markdown Render |
+| `Space + md` | Enable/Disable Markdown Render |
 
 ---
 
@@ -126,10 +138,9 @@ Open Neovim
 
 | Shortcut    | Action                  |
 | ----------- | ----------------------- |
-| `space + f` | Find files              |
-| `space + g` | Live grep (search text) |
-| `space + b` | List open buffers       |
-| `space + h` | Search help tags        |
+| `Space + f` | Find files              |
+| `Space + g` | Live grep (search text) |
+| `Space + b` | List open buffers       |
 
 ---
 
@@ -202,4 +213,4 @@ The LSP needs to be installed on the system to work
 ```bash
 git clone --depth 1 https://github.com/rida-hdj/nvim-simple-config.git $env:LOCALAPPDATA\nvim
 ```
-i don't use windows it should work maybe
+i don't use windows maybe it work

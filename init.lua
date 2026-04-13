@@ -11,8 +11,11 @@ vim.opt.cursorline = true
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 vim.opt.clipboard = "unnamedplus"
+vim.keymap.set({"n", "v"}, "d", '"_d')
 vim.o.wrap = true
 vim.o.breakindent = true
+vim.opt.updatetime = 250
+vim.opt.timeoutlen = 300
 
 vim.api.nvim_create_autocmd("BufEnter", {
   callback = function()

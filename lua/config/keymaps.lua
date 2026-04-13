@@ -6,8 +6,8 @@ local opts = { noremap = true, silent = true }
 -- =============================
 
 -- Create splits
-map("n", "<C-s>v", ":vsplit<CR>", opts) -- vertical split
-map("n", "<C-s>h", ":split<CR>", opts)  -- horizontal split
+map("n", "<leader>v", ":vsplit<CR>", opts) -- vertical split
+map("n", "<leader>h", ":split<CR>", opts)  -- horizontal split
 
 -- Navigate splits
 map("n", "<C-h>", "<C-w>h", opts)
@@ -20,9 +20,6 @@ map("n", "<M-Up>", ":resize +2<CR>", opts)
 map("n", "<M-Down>", ":resize -2<CR>", opts)
 map("n", "<M-Left>", ":vertical resize +4<CR>", opts)
 map("n", "<M-Right>", ":vertical resize -4<CR>", opts)
-
--- Close split
-map("n", "<C-s>c", ":close<CR>", opts)
 
 -- =============================
 -- TERMINAL
@@ -58,7 +55,6 @@ end
 vim.keymap.set('n', '<leader>f', telescope.find_files, { desc = 'Telescope find files' })
 vim.keymap.set('n', '<leader>g', telescope.live_grep, { desc = 'Telescope live grep' })
 vim.keymap.set('n', '<leader>b', telescope.buffers, { desc = 'Telescope buffers' })
-vim.keymap.set('n', '<leader>h', telescope.help_tags, { desc = 'Telescope help_tags' })
 
 -- =============================
 -- LSP
