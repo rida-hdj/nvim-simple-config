@@ -145,9 +145,9 @@ Open Neovim
 ---
 
 ## Neotree (file explorer)
-| Shortcut     | Action                    |
-| ------------ | ------------------------- |
-| `Ctrl + .`   | Open/Close Neotree window |
+| Shortcut      | Action                    |
+| ------------- | ------------------------- |
+| `Space + e`   | Open/Close Neotree window |
 
 ---
 

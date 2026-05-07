@@ -40,9 +40,9 @@ return {
           lualine_c = {
             { "filename", path = 1 },
           },
-          lualine_x = { "diagnostics", "encoding", "filetype" },
-          lualine_y = { "progress" },
-          lualine_z = { "location" },
+          lualine_x = { "diagnostics", "filetype" },
+          lualine_y = { "searchcount" },
+          lualine_z = { "lsp_status" },
         },
       })
     end,

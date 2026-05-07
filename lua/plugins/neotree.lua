@@ -5,7 +5,7 @@ return {
         cmd = { "Neotree" },
         keys = {
             {
-                "<C-.>",
+                "<leader>e",
                 "<cmd>Neotree toggle<cr>",
                 desc = "Toggle Neo-tree",
             },
@@ -34,7 +34,7 @@ return {
                 },
             })
 
-            vim.keymap.set("n", "<C-.>", function()
+            vim.keymap.set("n", "<leader>e", function()
                 require("neo-tree.command").execute({ toggle = true })
             end, { desc = "Toggle Neo-tree" })
         end,

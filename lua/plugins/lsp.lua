@@ -3,6 +3,24 @@ return {
     -- LSP
     -- =========================================================
     {
+        "j-hui/fidget.nvim",
+        opts = {
+            progress = {
+                suppress_on_insert = true,
+                display = {
+                    render_limit = 4,
+                    done_icon = "✔",
+                    progress_icon = { "dots" },
+                },
+            },
+            notification = {
+                window = {
+                    winblend = 0,
+                },
+            },
+        },
+    },
+    {
         "neovim/nvim-lspconfig",
         event = { "BufReadPre", "BufNewFile" },
 
@@ -153,7 +171,6 @@ return {
                         winhighlight = "Normal:CmpNormal,FloatBorder:FloatBorder",
                     }),
                 },
-
 
                 sources = {
                     { name = "luasnip",  priority = 1000 },
