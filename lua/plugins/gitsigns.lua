@@ -16,7 +16,7 @@ return {
 
             current_line_blame = true,
             watch_gitdir = { interval = 1000 },
-            attach_to_untracked = true,
+            attach_to_untracked = false,
         },
     },
 }

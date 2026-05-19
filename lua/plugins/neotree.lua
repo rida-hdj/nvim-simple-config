@@ -18,6 +18,16 @@ return {
         config = function()
             local neotree = require("neo-tree")
 
+            vim.diagnostic.config({
+                signs = {
+                    text = {
+                        [vim.diagnostic.severity.ERROR] = '',
+                        [vim.diagnostic.severity.WARN] = '',
+                        [vim.diagnostic.severity.INFO] = '',
+                        [vim.diagnostic.severity.HINT] = '󰌵',
+                    },
+                }
+            })
             neotree.setup({
                 close_if_last_window = true,
                 popup_border_style = "rounded",
@@ -25,11 +35,29 @@ return {
                 enable_diagnostics = true,
                 default_component_configs = {
                     icon = { folder_closed = "", folder_open = "" },
+                    git_status = {
+                        symbols = {
+                            added     = "+",
+                            modified  = "~",
+                            deleted   = "-",
+                            renamed   = "→",
+                            untracked = "?",
+                            ignored   = "◌",
+                            unstaged  = "",
+                            staged    = "✓",
+                            conflict  = "×",
+                        }
+                    }
                 },
                 window = {
-                    width = 30,
+                    width = 35,
                     mappings = {
                         ["<CR>"] = "open",
+                    },
+                },
+                filesystem = {
+                    follow_current_file = {
+                        enabled = true,
                     },
                 },
             })
