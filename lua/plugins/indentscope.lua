@@ -28,7 +28,6 @@ return {
             exclude = {
               filetypes = {
                 "dashboard",
-                "alpha",
                 "neo-tree",
                 "TelescopePrompt",
               },

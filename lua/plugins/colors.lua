@@ -29,15 +29,22 @@ return {
         config = function()
             require("lualine").setup({
                 options = {
-                    theme = "catppuccin-nvim",
+                    theme = 'auto',
                     icons_enabled = true,
-                    section_separators = "",
-                    component_separators = "",
+                    section_separators = { left = '', right = '' },
+                    component_separators = { left = '󰿟', right = '󰿟' },
                     globalstatus = true,
                 },
                 sections = {
-                    lualine_a = { "mode" },
-                    lualine_b = { "branch", "diff" },
+                    lualine_a = {
+                        {
+                            'mode',
+                            fmt = function(str)
+                                return str:sub(1, 1):upper()
+                            end,
+                        }
+                    },
+                    lualine_b = { "branch" },
                     lualine_c = {
                         { "filename", path = 1 },
                     },
