@@ -29,6 +29,12 @@ return {
         config = function()
             require("lualine").setup({
                 options = {
+                    disabled_filetypes = {
+                        statusline = {
+                            "dashboard",
+                            "TelescopePrompt",
+                        },
+                    },
                     theme = 'auto',
                     icons_enabled = true,
                     section_separators = { left = '', right = '' },
@@ -51,13 +57,6 @@ return {
                     lualine_x = { "diagnostics", "filetype" },
                     lualine_y = { "searchcount" },
                     lualine_z = { "lsp_status" },
-                },
-                extensions = {
-                    "neo-tree",
-                    "nvim-tree",
-                    "toggleterm",
-                    "quickfix",
-                    "fugitive",
                 },
             })
         end,

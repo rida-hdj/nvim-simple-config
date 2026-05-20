@@ -1,5 +1,6 @@
 return {
     "MeanderingProgrammer/render-markdown.nvim",
+    event = "BufReadPost",
     opts = {},
     config = function(_, opts)
         require("render-markdown").setup(opts)

@@ -1,4 +1,5 @@
 # nvim-simple-config
+![Local Image](./screenshot.png)
 
 A simple and minimal Neovim configuration.
 
@@ -79,6 +80,16 @@ Open Neovim
 | `Alt + ↓` | Decrease split height |
 | `Alt + ←` | Increase split width  |
 | `Alt + →` | Decrease split width  |
+
+---
+
+## Buffers
+
+### Navigate Buffers
+| shortcuts     | actions         |
+| ------------- | --------------- |
+| `Tab`         | Next buffer     |
+| `Tab + Shift` | Previous buffer |
 
 ---
 

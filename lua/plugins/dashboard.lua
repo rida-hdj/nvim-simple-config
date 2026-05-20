@@ -1,48 +1,95 @@
 return {
-    "nvimdev/dashboard-nvim",
-    event = "VimEnter",
-    opts = function()
-        local opts = {
-            theme = "doom",
-            config = {
-                vertical_center = true,
-                header = {},
-                center = {
-                    { action = 'Telescope find_files', desc = " Find File", icon = " ", key = "1" },
-                    { action = "ene | startinsert", desc = " New File", icon = " ", key = "2" },
-                    { action = 'Telescope oldfiles', desc = " Recent Files", icon = " ", key = "3" },
-                    { action = 'Telescope projects', desc = " Recent Projects", icon = " ", key = "4" },
-                    { action = 'Telescope live_grep', desc = " Find Text", icon = "󰱽 ", key = "5" },
-                    { action = 'LazyGit', desc = " LazyGit", icon = " ", key = "6" },
-                    { action = "Lazy", desc = " Lazy", icon = "󰒲 ", key = "7" },
-                    { action = 'Telescope keymaps', desc = " Keymaps", icon = " ", key = "8" },
-                    { action = function() vim.api.nvim_input("<cmd>qa<cr>") end, desc = " Quit", icon = "󰈆 ", key = "q" },
+    {
+        "folke/snacks.nvim",
+        priority = 1000,
+        lazy = false,
+
+        opts = {
+            dashboard = {
+                enabled = true,
+                width = 70,
+                pane_gap = 4,
+                preset = {
+                    header = [[
+  ██        ██     ███        ███   ███    ███       ███
+ ███        ███     ████      ███   ███   ███        ███
+███    ███    ███      ██████████   ███  ███         ███
+      █████          ████████████   ███     ████████████
+     ███████        ████      ███   ███    ████      ███
+     ███████       ███        ███   ███    ███       ███
+    ███   ███      ███        ███   ███    ███       ███
+   ███     ████    ███        ███   ███     ████████████
+   ███     ████    ███        ███   ███       ██████████
+  ██████████████   ███        ███   ███      ███     ███
+]],
+                    keys = {
+                        {
+                            icon = " ",
+                            key = "1",
+                            desc = "Find File",
+                            action = ":Telescope find_files",
+                        },
+
+                        {
+                            icon = " ",
+                            key = "2",
+                            desc = "New File",
+                            action = ":ene | startinsert",
+                        },
+
+                        {
+                            icon = " ",
+                            key = "3",
+                            desc = "Recent Files",
+                            action = ":Telescope oldfiles",
+                        },
+
+                        {
+                            icon = " ",
+                            key = "4",
+                            desc = "Recent Projects",
+                            action = function()
+                                Snacks.picker.projects()
+                            end,
+                        },
+
+                        {
+                            icon = "󰱽 ",
+                            key = "5",
+                            desc = "Find Text",
+                            action = ":Telescope live_grep",
+                        },
+
+                        {
+                            icon = " ",
+                            key = "6",
+                            desc = "LazyGit",
+                            action = ":LazyGit",
+                        },
+
+                        {
+                            icon = "󰒲 ",
+                            key = "7",
+                            desc = "Lazy",
+                            action = ":Lazy",
+                        },
+
+                        {
+                            icon = " ",
+                            key = "8",
+                            desc = "Keymaps",
+                            action = ":Telescope keymaps",
+                        },
+
+                        {
+                            icon = "󰈆 ",
+                            key = "q",
+                            desc = "Quit",
+                            action = ":qa",
+                        },
+                    },
                 },
-                footer = function()
-                    local stats = require("lazy").stats()
-                    local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
-                    return { "Neovim loaded " .. stats.loaded .. "/" .. stats.count .. " plugins in " .. ms .. "ms" }
-                end,
             },
-        }
-
-        for _, button in ipairs(opts.config.center) do
-            button.desc = button.desc .. string.rep(" ", 43 - #button.desc)
-            button.key_format = "  %s"
-        end
-
-        if vim.o.filetype == "lazy" then
-            vim.api.nvim_create_autocmd("WinClosed", {
-                pattern = tostring(vim.api.nvim_get_current_win()),
-                once = true,
-                callback = function()
-                    vim.schedule(function()
-                        vim.api.nvim_exec_autocmds("UIEnter", { group = "dashboard" })
-                    end)
-                end,
-            })
-        end
-
-        return opts
-    end,
+        },
+    },
 }

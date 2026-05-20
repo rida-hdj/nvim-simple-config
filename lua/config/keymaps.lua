@@ -2,7 +2,7 @@ local map = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
 -- =============================
--- WINDOW / SPLITS
+-- WINDOW / SPLITS / BUFFERS
 -- =============================
 
 -- Create splits
@@ -20,6 +20,10 @@ map("n", "<M-Up>", ":resize +2<CR>", opts)
 map("n", "<M-Down>", ":resize -2<CR>", opts)
 map("n", "<M-Left>", ":vertical resize +4<CR>", opts)
 map("n", "<M-Right>", ":vertical resize -4<CR>", opts)
+
+-- Navigate buffers
+vim.keymap.set("n", "<Tab>", ":bnext<CR>")
+vim.keymap.set("n", "<S-Tab>", ":bprevious<CR>")
 
 -- =============================
 -- TERMINAL
