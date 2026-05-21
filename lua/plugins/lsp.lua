@@ -105,6 +105,7 @@ return {
             "hrsh7th/cmp-buffer",
             "L3MON4D3/LuaSnip",
             "rafamadriz/friendly-snippets",
+            "saadparwaiz1/cmp_luasnip",
         },
 
         config = function()
@@ -148,15 +149,50 @@ return {
 
                 snippet = {
                     expand = function(args)
-                        luasnip.lsp_expand(args.body)
+                        --                        luasnip.lsp_expand(args.body)
+                        require("luasnip").lsp_expand(args.body)
+                        require("luasnip.loaders.from_vscode").lazy_load()
                     end,
                 },
-
                 formatting = {
-                    fields = { "abbr" },
+                    fields = { "kind", "abbr", },
+
                     format = function(_, item)
-                        item.kind = ""
-                        item.menu = ""
+                        local icons = {
+                            Text          = "󰉿",
+                            Method        = "󰆧",
+                            Function      = "󰊕",
+                            Constructor   = "",
+
+                            Field         = "󰜢",
+                            Variable      = "󰀫",
+                            Property      = "󰖷",
+
+                            Class         = "󰠱",
+                            Interface     = "",
+                            Struct        = "󰙅",
+                            Module        = "󰆧",
+
+                            Unit          = "󰑭",
+                            Value         = "󰎠",
+                            Enum          = "󰦨",
+                            EnumMember    = "󰦨",
+
+                            Keyword       = "󰌋",
+                            Constant      = "󰏿",
+
+                            Snippet       = "",
+
+                            Color         = "󰏘",
+                            File          = "󰈙",
+                            Reference     = "󰈇",
+                            Folder        = "󰉋",
+
+                            Event         = "",
+                            Operator      = "󰆕",
+                            TypeParameter = "󰊄",
+                        }
+                        item.kind = (icons[item.kind] or "") .. " "
                         return item
                     end,
                 },
@@ -165,16 +201,24 @@ return {
                     completion = cmp.config.window.bordered({
                         max_width = 20,
                         max_height = 8,
-                        winhighlight = "Normal:CmpNormal,FloatBorder:FloatBorder",
+                        winhighlight = "Normal:CmpNormal,FloatBorder:CmpBorder,CursorLine:PmenuSel,Search:None",
                     }),
                     documentation = cmp.config.window.bordered({
-                        winhighlight = "Normal:CmpNormal,FloatBorder:FloatBorder",
+                        max_height = 15,
+                        winhighlight = "Normal:CmpNormal,FloatBorder:CmpBorder,CursorLine:PmenuSel,Search:None",
                     }),
                 },
 
+                view = {
+                    entries = {
+                        name = "custom",
+                        selection_order = "near_cursor",
+                    },
+                },
+
                 sources = {
-                    { name = "luasnip",  priority = 1000 },
                     { name = "nvim_lsp", priority = 500 },
+                    { name = "luasnip",  priority = 1000 },
                     {
                         name = "path",
                         priority = 750,
@@ -185,8 +229,6 @@ return {
                     },
                     { name = "buffer", priority = 250 },
                 },
-
-
             })
         end,
     },
