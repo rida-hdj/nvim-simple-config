@@ -29,6 +29,7 @@ A simple and minimal Neovim configuration.
 - `cssls` -> css
 - `ts_ls` -> javascript/typescript
 - `nil_ls` -> nix
+- `marksman` -> markdown
 
 ## Backup Existing Config
 Before installing this configuration, it's recommended to back up your existing Neovim configuration:
@@ -54,10 +55,11 @@ Open Neovim
 
 ### Create Splits
 
-| Shortcut       | Action           | Description                  |
-| -------------- | ---------------- | ---------------------------- |
+| Shortcut    | Action           | Description                  |
+| ----------- | ---------------- | ---------------------------- |
 | `Space + v` | Vertical split   | Opens a new vertical split   |
 | `Space + h` | Horizontal split | Opens a new horizontal split |
+| `Space + q` | Close split      | Close the selected split     |
 
 ---
 
@@ -125,21 +127,19 @@ Open Neovim
 
 ---
 
-### Render markdown
-
-| Shortcut     | Actions                        |
-|------------- | ------------------------------ |
-| `Space + md` | Enable/Disable Markdown Render |
-
----
-
 ## File Actions
 
 | Shortcut           | Action        |
 | ------------------ | ------------- |
 | `Ctrl + s`         | Save file     |
-| `Ctrl + q`         | Quit window   |
-| `Ctrl + Shift + q` | Save and quit |
+
+---
+
+## Window Actions
+
+| Shortcut   | Action       |
+| ---------- | ------------ |
+| `Ctrl + q` | Close window |
 
 ---
 
@@ -214,10 +214,33 @@ The LSP needs to be installed on the system to work
 
 ### Visual Mode – Move Lines
 
-| Shortcut   | Action              |
+| shortcut   | action              |
 | ---------- | ------------------- |
-| `Ctrl + j` | Move selection down |
-| `Ctrl + k` | Move selection up   |
+| `ctrl + j` | move selection down |
+| `ctrl + k` | move selection up   |
+
+---
+
+## Markdown
+
+### Render markdown
+
+| Shortcut     | Actions                        |
+|------------- | ------------------------------ |
+| `Space + md` | Enable/Disable Markdown Render |
+
+---
+
+### Editing markdown
+
+| shortcut        | action                     |
+|-----------------|----------------------------|
+| `Space + t + c` | toggle checkbox            |
+| `Space + t + l` | toggle list                |
+| `Space + t + o` | toggle ordered list        |
+| `Space + t + h` | toggle heading             |
+| `Space + t + q` | toggle quote block         |
+| `gf`            | open file / link / URL     |
 
 ---
 

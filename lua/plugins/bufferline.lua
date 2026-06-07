@@ -1,6 +1,7 @@
 vim.api.nvim_set_hl(0, "BufferLineFill", { bg = "#181825" })
 return {
     "akinsho/bufferline.nvim",
+    event = "BufReadPost",
 
     config = function()
         require("bufferline").setup({

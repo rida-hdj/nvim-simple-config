@@ -1,8 +1,8 @@
 return {
     {
         "nvim-mini/mini.indentscope",
-        version = false,
         event = { "BufReadPost", "BufNewFile" },
+        version = false,
         opts = function()
             local mini = require("mini.indentscope")
             vim.api.nvim_set_hl(0, "MiniIndentscopeSymbol", {
@@ -21,7 +21,7 @@ return {
     {
         "lukas-reineke/indent-blankline.nvim",
         main = "ibl",
-        event = { "VeryLazy", "BufReadPost" },
+        event = { "BufNewFile", "BufReadPost" },
         opts = {
             indent = { char = "│" },
             scope = { enabled = false },

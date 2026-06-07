@@ -4,6 +4,7 @@ return {
     -- =========================================================
     {
         "j-hui/fidget.nvim",
+        event = "LspAttach",
         opts = {
             progress = {
                 suppress_on_insert = true,
@@ -52,6 +53,9 @@ return {
             vim.lsp.config("lua_ls", {
                 capabilities = capabilities,
                 settings = {
+                    workspace = {
+                        library = vim.api.nvim_get_runtime_file("", true),
+                    },
                     Lua = {
                         diagnostics = {
                             globals = { "vim" },
@@ -80,6 +84,11 @@ return {
                 capabilities = capabilities,
             })
 
+            -- Markdown
+            vim.lsp.config("marksman", {
+                capabilities = capabilities,
+            })
+
             vim.lsp.enable({
                 "html",
                 "cssls",
@@ -89,6 +98,7 @@ return {
                 "rust_analyzer",
                 "clangd",
                 "nil_ls",
+                "marksman",
             })
         end,
     },
@@ -234,7 +244,7 @@ return {
     },
 
     -- =========================================================
-    -- HTML TAG AUTO CLOSE
+    -- AUTO CLOSE
     -- =========================================================
     {
         "windwp/nvim-ts-autotag",
@@ -245,5 +255,11 @@ return {
         },
 
         config = true,
+    },
+
+    {
+        "windwp/nvim-autopairs",
+        event = "InsertEnter",
+        opts = {},
     },
 }
