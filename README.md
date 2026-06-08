@@ -1,5 +1,5 @@
 # nvim-simple-config
-[![Enter Docs](https://img.shields.io/badge/ENTER-DOCUMENTATION-00bcd4?style=for-the-badge&logo=gitbook)](https://rida-hdj.github.io/nvim/)
+[![Enter Docs](https://img.shields.io/badge/ENTER-DOCUMENTATION-00bcd4?style=for-the-badge&logo=gitbook)](https://rida-hdj.github.io/nvim-simple-config/)
 
 A simple and minimal Neovim configuration.
 
