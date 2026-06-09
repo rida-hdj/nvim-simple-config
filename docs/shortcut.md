@@ -232,7 +232,7 @@ Quick toggles for common markdown syntax.
 
 Live reload HTML, CSS, and JavaScript
 
-## Commands
+### Commands
 
 | Command    | Action                                                                        |
 | ---------- | ----------------------------------------------------------------------------- |
