@@ -74,6 +74,6 @@ Live server for web development
 
 | Plugin | Description |
 | ------ | ----------- |
-| [live-server.nvim](https://forge.barrettruth.com/barrettruth/live-server.nvim) | A simple tool run a live server for your |
+| [live-server.nvim](https://forge.barrettruth.com/barrettruth/live-server.nvim) | A simple tool run live server for your web project |
 
 ---

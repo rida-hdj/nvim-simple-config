@@ -237,7 +237,7 @@ Live reload HTML, CSS, and JavaScript
 | Command    | Action                                                                        |
 | ---------- | ----------------------------------------------------------------------------- |
 | `:LiveServerStart`                       | start live server in the current directory      |
-| `:LiveServerStart` ~/projects/my-website | start live server in a specific directory       |
+| `:LiveServerStart ~/projects/my-website` | start live server in a specific directory       |
 | `:LiveServerToggle`                      | switch betwen the same project status on or off |
 | `:LiveServerStop`                        | stop the server                                 |
 
