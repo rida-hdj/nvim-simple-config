@@ -65,3 +65,15 @@ Tools that streamline everyday editing tasks.
 | ------ | ----------- |
 | [nvim-autopairs](https://github.com/windwp/nvim-autopairs) | Automatically inserts closing pairs like brackets, quotes, and parentheses |
 | [nvim-ts-autotag](https://github.com/windwp/nvim-ts-autotag) | Uses Tree-sitter to auto-close and auto-rename HTML/XML/JSX tags |
+
+---
+
+# Live server
+
+Live server for web development
+
+| Plugin | Description |
+| ------ | ----------- |
+| [live-server.nvim](https://forge.barrettruth.com/barrettruth/live-server.nvim) | A simple tool run a live server for your |
+
+---

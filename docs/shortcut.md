@@ -227,3 +227,18 @@ Quick toggles for common markdown syntax.
 | `gf`            | Open link           | Open file, link, or URL under cursor     |
 
 ---
+
+# Live server
+
+Live reload HTML, CSS, and JavaScript
+
+## Commands
+
+| Command    | Action                                                                        |
+| ---------- | ----------------------------------------------------------------------------- |
+| `:LiveServerStart`                       | start live server in the current directory      |
+| `:LiveServerStart` ~/projects/my-website | start live server in a specific directory       |
+| `:LiveServerToggle`                      | switch betwen the same project status on or off |
+| `:LiveServerStop`                        | stop the server                                 |
+
+---
