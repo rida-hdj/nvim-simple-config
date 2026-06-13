@@ -125,7 +125,27 @@ return {
             require("luasnip.loaders.from_vscode").lazy_load()
             luasnip.config.setup({})
 
-            vim.api.nvim_set_hl(0, "CmpNormal", { bg = "#32364e" })
+            -- vim.api.nvim_set_hl(0, "CmpNormal", { bg = "#32364e" })
+
+            vim.api.nvim_set_hl(0, "CmpBorder", {
+                fg = "#585b70",
+            })
+
+            vim.api.nvim_set_hl(0, "PmenuSel", {
+                bg = "#cba6f7",
+                fg = "#313244",
+            })
+
+            local border = {
+                { "╭", "CmpBorder" },
+                { "─", "CmpBorder" },
+                { "╮", "CmpBorder" },
+                { "│", "CmpBorder" },
+                { "╯", "CmpBorder" },
+                { "─", "CmpBorder" },
+                { "╰", "CmpBorder" },
+                { "│", "CmpBorder" },
+            }
 
             cmp.setup({
                 mapping = cmp.mapping.preset.insert({
@@ -209,11 +229,15 @@ return {
 
                 window = {
                     completion = cmp.config.window.bordered({
+                        border = border,
+                        scrollbar = false,
                         max_width = 20,
                         max_height = 8,
                         winhighlight = "Normal:CmpNormal,FloatBorder:CmpBorder,CursorLine:PmenuSel,Search:None",
                     }),
                     documentation = cmp.config.window.bordered({
+                        border = border,
+                        scrollbar = false,
                         max_height = 15,
                         winhighlight = "Normal:CmpNormal,FloatBorder:CmpBorder,CursorLine:PmenuSel,Search:None",
                     }),
