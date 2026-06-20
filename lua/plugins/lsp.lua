@@ -106,166 +106,166 @@ return {
     -- =========================================================
     -- AUTOCOMPLETE
     -- =========================================================
-    {
-        "hrsh7th/nvim-cmp",
-        event = "InsertEnter",
+        {
+            "hrsh7th/nvim-cmp",
+            event = "InsertEnter",
 
-        dependencies = {
-            "hrsh7th/cmp-nvim-lsp",
-            "hrsh7th/cmp-buffer",
-            "L3MON4D3/LuaSnip",
-            "rafamadriz/friendly-snippets",
-            "saadparwaiz1/cmp_luasnip",
-        },
+            dependencies = {
+                "hrsh7th/cmp-nvim-lsp",
+                "hrsh7th/cmp-buffer",
+                "L3MON4D3/LuaSnip",
+                "rafamadriz/friendly-snippets",
+                "saadparwaiz1/cmp_luasnip",
+            },
 
-        config = function()
-            local cmp = require("cmp")
-            local luasnip = require("luasnip")
+            config = function()
+                local cmp = require("cmp")
+                local luasnip = require("luasnip")
 
-            require("luasnip.loaders.from_vscode").lazy_load()
-            luasnip.config.setup({})
+                require("luasnip.loaders.from_vscode").lazy_load()
+                luasnip.config.setup({})
 
-            -- vim.api.nvim_set_hl(0, "CmpNormal", { bg = "#32364e" })
+                -- vim.api.nvim_set_hl(0, "CmpNormal", { bg = "#32364e" })
 
-            vim.api.nvim_set_hl(0, "CmpBorder", {
-                fg = "#585b70",
-            })
+                vim.api.nvim_set_hl(0, "CmpBorder", {
+                    fg = "#585b70",
+                })
 
-            vim.api.nvim_set_hl(0, "PmenuSel", {
-                bg = "#cba6f7",
-                fg = "#313244",
-            })
+                vim.api.nvim_set_hl(0, "PmenuSel", {
+                    bg = "#cba6f7",
+                    fg = "#313244",
+                })
 
-            local border = {
-                { "╭", "CmpBorder" },
-                { "─", "CmpBorder" },
-                { "╮", "CmpBorder" },
-                { "│", "CmpBorder" },
-                { "╯", "CmpBorder" },
-                { "─", "CmpBorder" },
-                { "╰", "CmpBorder" },
-                { "│", "CmpBorder" },
-            }
+                local border = {
+                    { "╭", "CmpBorder" },
+                    { "─", "CmpBorder" },
+                    { "╮", "CmpBorder" },
+                    { "│", "CmpBorder" },
+                    { "╯", "CmpBorder" },
+                    { "─", "CmpBorder" },
+                    { "╰", "CmpBorder" },
+                    { "│", "CmpBorder" },
+                }
 
-            cmp.setup({
-                mapping = cmp.mapping.preset.insert({
-                    ["<Tab>"] = cmp.mapping(function(fallback)
-                        if cmp.visible() then
-                            cmp.confirm({ select = true })
-                            cmp.complete()
-                        else
+                cmp.setup({
+                    mapping = cmp.mapping.preset.insert({
+                        ["<Tab>"] = cmp.mapping(function(fallback)
+                            if cmp.visible() then
+                                cmp.confirm({ select = true })
+                                cmp.complete()
+                            else
+                                fallback()
+                            end
+                        end, { "i", "s" }),
+
+                        ["<S-Tab>"] = cmp.mapping.select_next_item(),
+
+                        ["<Down>"] = cmp.mapping(function(fallback)
                             fallback()
-                        end
-                    end, { "i", "s" }),
+                        end, { "i", "s" }),
 
-                    ["<S-Tab>"] = cmp.mapping.select_next_item(),
+                        ["<Up>"] = cmp.mapping(function(fallback)
+                            fallback()
+                        end, { "i", "s" }),
 
-                    ["<Down>"] = cmp.mapping(function(fallback)
-                        fallback()
-                    end, { "i", "s" }),
+                        ["<C-j>"] = cmp.mapping(function(fallback)
+                            fallback()
+                        end, { "i", "s" }),
 
-                    ["<Up>"] = cmp.mapping(function(fallback)
-                        fallback()
-                    end, { "i", "s" }),
-
-                    ["<C-j>"] = cmp.mapping(function(fallback)
-                        fallback()
-                    end, { "i", "s" }),
-
-                    ["<C-k>"] = cmp.mapping(function(fallback)
-                        fallback()
-                    end, { "i", "s" }),
-                }),
-
-                snippet = {
-                    expand = function(args)
-                        --                        luasnip.lsp_expand(args.body)
-                        require("luasnip").lsp_expand(args.body)
-                        require("luasnip.loaders.from_vscode").lazy_load()
-                    end,
-                },
-                formatting = {
-                    fields = { "kind", "abbr", },
-
-                    format = function(_, item)
-                        local icons = {
-                            Text          = "󰉿",
-                            Method        = "󰆧",
-                            Function      = "󰊕",
-                            Constructor   = "",
-
-                            Field         = "󰜢",
-                            Variable      = "󰀫",
-                            Property      = "󰖷",
-
-                            Class         = "󰠱",
-                            Interface     = "",
-                            Struct        = "󰙅",
-                            Module        = "󰆧",
-
-                            Unit          = "󰑭",
-                            Value         = "󰎠",
-                            Enum          = "󰦨",
-                            EnumMember    = "󰦨",
-
-                            Keyword       = "󰌋",
-                            Constant      = "󰏿",
-
-                            Snippet       = "",
-
-                            Color         = "󰏘",
-                            File          = "󰈙",
-                            Reference     = "󰈇",
-                            Folder        = "󰉋",
-
-                            Event         = "",
-                            Operator      = "󰆕",
-                            TypeParameter = "󰊄",
-                        }
-                        item.kind = (icons[item.kind] or "") .. " "
-                        return item
-                    end,
-                },
-
-                window = {
-                    completion = cmp.config.window.bordered({
-                        border = border,
-                        scrollbar = false,
-                        max_width = 20,
-                        max_height = 8,
-                        winhighlight = "Normal:CmpNormal,FloatBorder:CmpBorder,CursorLine:PmenuSel,Search:None",
+                        ["<C-k>"] = cmp.mapping(function(fallback)
+                            fallback()
+                        end, { "i", "s" }),
                     }),
-                    documentation = cmp.config.window.bordered({
-                        border = border,
-                        scrollbar = false,
-                        max_height = 15,
-                        winhighlight = "Normal:CmpNormal,FloatBorder:CmpBorder,CursorLine:PmenuSel,Search:None",
-                    }),
-                },
 
-                view = {
-                    entries = {
-                        name = "custom",
-                        selection_order = "near_cursor",
+                    snippet = {
+                        expand = function(args)
+                            --                        luasnip.lsp_expand(args.body)
+                            require("luasnip").lsp_expand(args.body)
+                            require("luasnip.loaders.from_vscode").lazy_load()
+                        end,
                     },
-                },
+                    formatting = {
+                        fields = { "kind", "abbr", },
 
-                sources = {
-                    { name = "nvim_lsp", priority = 500 },
-                    { name = "luasnip",  priority = 1000 },
-                    {
-                        name = "path",
-                        priority = 750,
-                        option = {
-                            trailing_slash = true,
-                            label_trailing_slash = true,
+                        format = function(_, item)
+                            local icons = {
+                                Text          = "󰉿",
+                                Method        = "󰆧",
+                                Function      = "󰊕",
+                                Constructor   = "",
+
+                                Field         = "󰜢",
+                                Variable      = "󰀫",
+                                Property      = "󰖷",
+
+                                Class         = "󰠱",
+                                Interface     = "",
+                                Struct        = "󰙅",
+                                Module        = "󰆧",
+
+                                Unit          = "󰑭",
+                                Value         = "󰎠",
+                                Enum          = "󰦨",
+                                EnumMember    = "󰦨",
+
+                                Keyword       = "󰌋",
+                                Constant      = "󰏿",
+
+                                Snippet       = "",
+
+                                Color         = "󰏘",
+                                File          = "󰈙",
+                                Reference     = "󰈇",
+                                Folder        = "󰉋",
+
+                                Event         = "",
+                                Operator      = "󰆕",
+                                TypeParameter = "󰊄",
+                            }
+                            item.kind = (icons[item.kind] or "") .. " "
+                            return item
+                        end,
+                    },
+
+                    window = {
+                        completion = cmp.config.window.bordered({
+                            border = border,
+                            scrollbar = false,
+                            max_width = 20,
+                            max_height = 8,
+                            winhighlight = "Normal:CmpNormal,FloatBorder:CmpBorder,CursorLine:PmenuSel,Search:None",
+                        }),
+                        documentation = cmp.config.window.bordered({
+                            border = border,
+                            scrollbar = false,
+                            max_height = 15,
+                            winhighlight = "Normal:CmpNormal,FloatBorder:CmpBorder,CursorLine:PmenuSel,Search:None",
+                        }),
+                    },
+
+                    view = {
+                        entries = {
+                            name = "custom",
+                            selection_order = "near_cursor",
                         },
                     },
-                    { name = "buffer", priority = 250 },
-                },
-            })
-        end,
-    },
+
+                    sources = {
+                        { name = "nvim_lsp", priority = 500 },
+                        { name = "luasnip",  priority = 1000 },
+                        {
+                            name = "path",
+                            priority = 750,
+                            option = {
+                                trailing_slash = true,
+                                label_trailing_slash = true,
+                            },
+                        },
+                        { name = "buffer", priority = 250 },
+                    },
+                })
+            end,
+        },
 
     -- =========================================================
     -- AUTO CLOSE
