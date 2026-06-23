@@ -213,19 +213,6 @@ Toggle the visual rendering of markdown elements.
 | ------------ | --------------------- | ---------------------------------------- |
 | `Space + md` | Toggle markdown render| Enable or disable markdown rendering     |
 
-### Editing Markdown
-
-Quick toggles for common markdown syntax.
-
-| Shortcut        | Action              | Description                              |
-| --------------- | ------------------- | ---------------------------------------- |
-| `Space + t + c` | Toggle checkbox     | Add or remove a task list checkbox       |
-| `Space + t + l` | Toggle list         | Convert line to or from an unordered list|
-| `Space + t + o` | Toggle ordered list | Convert line to or from an ordered list  |
-| `Space + t + h` | Toggle heading      | Cycle through heading levels             |
-| `Space + t + q` | Toggle quote block  | Add or remove a blockquote               |
-| `gf`            | Open link           | Open file, link, or URL under cursor     |
-
 ---
 
 # Live server

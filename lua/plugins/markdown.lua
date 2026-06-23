@@ -11,14 +11,4 @@ return {
                 { desc = "Toggle Markdown Render" })
         end,
     },
-    {
-        "roodolv/markdown-toggle.nvim",
-        ft = { "markdown" },
-        config = function()
-            require("markdown-toggle").setup({
-                use_default_keymaps = true,
-        })
-
-        end,
-    },
 }

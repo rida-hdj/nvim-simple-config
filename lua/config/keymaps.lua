@@ -46,13 +46,6 @@ end, { silent = true })
 -- TERMINAL
 -- =============================
 
--- Open terminal (horizontal)
-map("n", "<C-t>", function()
-    local height = math.floor(vim.o.lines * 0.25)
-    vim.cmd(height .. "split")
-    vim.cmd("terminal")
-end, opts)
-
 -- Exit terminal mode
 map("t", "<Esc>", [[<C-\><C-n>]], opts)
 
@@ -108,47 +101,3 @@ map("v", "<C-l>", ">gv", opts)
 map("v", "<C-j>", ":m '>+1<CR>gv=gv", opts)
 map("v", "<C-k>", ":m '<-2<CR>gv=gv", opts)
 
--- markdown
-local toggle = require("markdown-toggle")
-local opts = { silent = true, noremap = true }
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
--- checkboxes
-vim.keymap.set({ "n", "x" }, "<leader>tc", toggle.checkbox, opts)
--- lists
-vim.keymap.set({ "n", "x" }, "<leader>tl", toggle.list, opts)
--- ordered list
-vim.keymap.set({ "n", "x" }, "<leader>to", toggle.olist, opts)
--- headings
-vim.keymap.set({ "n", "x" }, "<leader>th", toggle.heading, opts)
--- quote block
-vim.keymap.set({ "n", "x" }, "<leader>tq", toggle.quote, opts)
-vim.keymap.set("n", "gf",
-    function()
-        local line = vim.api.nvim_get_current_line()
-        local col = vim.fn.col(".")
-        local text, url
-        for t, u in line:gmatch("%[([^%]]+)%]%((https?://[^%)]+)%)") do
-            local start_pos, end_pos = line:find("%[" .. vim.pesc(t) .. "%]%(" .. vim.pesc(u) .. "%)")
-            if start_pos and end_pos and col >= start_pos and col <= end_pos then
-                text, url = t, u
-                break
-            end
-        end
-        if url then
-            vim.fn.jobstart({ "xdg-open", url }, { detach = true })
-            return
-        end
-        local file = vim.fn.expand("<cfile>")
-        if file:match("^https?://") then
-            vim.fn.jobstart({ "xdg-open", file }, { detach = true })
-            return
-        end
-        if vim.fn.findfile(file, ".") ~= "" then
-            vim.cmd("edit " .. file)
-            return
-        end
-        print("no link or file found")
-    end, { silent = true })
-
-return true
