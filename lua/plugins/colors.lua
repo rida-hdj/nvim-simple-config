@@ -73,4 +73,15 @@ return {
             require("nvim-highlight-colors").setup({})
         end,
     },
+    {
+        "folke/todo-comments.nvim",
+        event = "BufReadPost",
+        opts = {},
+        config = function(_, opts)
+            require("todo-comments").setup(opts)
+
+            pcall(vim.api.nvim_del_user_command, "TodoFzfLua")
+            pcall(vim.api.nvim_del_user_command, "TodoTrouble")
+        end,
+    },
 }

@@ -44,6 +44,7 @@ Visual enhancements that make Neovim look and feel modern.
 | [nvim-highlight-colors](https://github.com/brenoprata10/nvim-highlight-colors) | Shows actual color previews for hex codes, CSS variables, and color names |
 | [render-markdown.nvim](https://github.com/MeanderingProgrammer/render-markdown.nvim) | Renders markdown files with formatted headings, lists, checkboxes, and code blocks |
 | [toggleterm](https://github.com/akinsho/toggleterm.nvim.git) | Open toggle terminal |
+| [todo-comments.nvim](https://github.com/folke/todo-comments.nvim) | Renders clolors for todo comments |
 ---
 
 ## Version Control (Git)

@@ -30,6 +30,7 @@ return {
                 "dashboard",
                 "neo-tree",
                 "TelescopePrompt",
+                "toggleterm"
               },
             },
         },
