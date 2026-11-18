@@ -91,12 +91,12 @@ return {
             luasnip.config.setup({})
 
             vim.api.nvim_set_hl(0, "CmpBorder", {
-                fg = "#585b70",
+                fg = "#565B66",
             })
 
             vim.api.nvim_set_hl(0, "PmenuSel", {
-                bg = "#cba6f7",
-                fg = "#313244",
+                bg = "#1B2733",
+                fg = "#BFBDB6",
             })
 
             local border = {

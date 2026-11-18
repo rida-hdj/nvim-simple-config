@@ -1,17 +1,20 @@
 return {
     -- =============================
-    -- CATPPUCCIN
+    -- AYU
     -- =============================
     {
-        "catppuccin/nvim",
+        "shatur/neovim-ayu",
         lazy = false,
         priority = 1000,
-        name = "catppuccin",
 
         config = function()
-            require("catppuccin").setup({})
+            require("ayu").setup({
+                mirage = false,
+                terminal = true,
+                overrides = {},
+            })
 
-            vim.cmd.colorscheme("catppuccin-mocha")
+            vim.cmd.colorscheme("ayu-dark")
         end,
     },
 
@@ -35,20 +38,20 @@ return {
                             "TelescopePrompt",
                         },
                     },
-                    theme = 'auto',
+                    theme = "ayu",
                     icons_enabled = true,
-                    section_separators = { left = '', right = '' },
-                    component_separators = { left = '󰿟', right = '󰿟' },
+                    section_separators = { left = "", right = "" },
+                    component_separators = { left = "󰿟", right = "󰿟" },
                     globalstatus = true,
                 },
                 sections = {
                     lualine_a = {
                         {
-                            'mode',
+                            "mode",
                             fmt = function(str)
                                 return str:sub(1, 1):upper()
                             end,
-                        }
+                        },
                     },
                     lualine_b = { "branch" },
                     lualine_c = {
@@ -73,10 +76,12 @@ return {
             require("nvim-highlight-colors").setup({})
         end,
     },
+
     {
         "folke/todo-comments.nvim",
         event = "BufReadPost",
         opts = {},
+
         config = function(_, opts)
             require("todo-comments").setup(opts)
 

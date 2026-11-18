@@ -6,7 +6,7 @@ return {
         opts = function()
             local mini = require("mini.indentscope")
             vim.api.nvim_set_hl(0, "MiniIndentscopeSymbol", {
-                fg = "#C287FF",
+                fg = "#59C2FF",
             })
             return {
                 symbol = "│",
