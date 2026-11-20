@@ -1,0 +1,12 @@
+base_url = "https://rida-hdj.github.io/nvim-simple-config/"
+title = "nvim-simple-config"
+theme = "lessdoc"
+
+[markdown.highlighting]
+theme = "ayu-dark"
+
+[extra]
+projects = [
+  { name = "home", path = "/" },
+  { name = "docs", path = "/docs/" },
+]

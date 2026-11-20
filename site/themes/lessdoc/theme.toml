@@ -1,0 +1,10 @@
+name = "lessdoc"
+description = "Minimal, typography-focused documentation theme for Zola"
+tags = ["documentation", "minimal"]
+license = "MIT"
+homepage = ""
+min_version = "0.23.0"
+demo = ""
+
+[extra]
+projects = []

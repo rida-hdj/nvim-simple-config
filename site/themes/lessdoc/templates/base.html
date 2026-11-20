@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}{{ config.title }}{% endblock %}</title>
+  <link rel="stylesheet" href="{{ get_url(path="style.css") }}">
+</head>
+<body>
+  {% set path = page.path if page is defined else section.path %}
+  {% set parts = path | split(pat="/") %}
+  {% set project = parts[1] %}
+  {% set project_section = get_section(path=project ~ "/_index.md") if project else get_section(path="_index.md") %}
+
+  <input class="menu-toggle" type="checkbox" id="menu" aria-controls="nav">
+  <header>
+    <a href="{{ config.base_url }}">{{ config.title }}</a>
+    <label for="menu">menu</label>
+  </header>
+
+  {% if config.extra.projects %}
+  <nav class="projects" aria-label="Projects">
+    {% for item in config.extra.projects %}
+    <a href="{{ get_url(path=item.path, trailing_slash=true) }}"{% if path == item.path or (item.path != "/" and path is starting_with(pat=item.path)) %} aria-current="page"{% endif %}>{{ item.name }}</a>{% if not loop.last %} | {% endif %}
+    {% endfor %}
+  </nav>
+  {% endif %}
+
+  <div class="layout">
+    <nav id="nav" aria-label="Pages">
+      <ul>
+        <li><a href="{{ project_section.permalink }}"{% if path == project_section.path %} aria-current="page"{% endif %}>{{ project_section.title }}</a></li>
+        {% for p in project_section.pages %}
+        <li><a href="{{ p.permalink }}"{% if path == p.path %} aria-current="page"{% endif %}>{{ p.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </nav>
+    <main>{% block content %}{% endblock %}</main>
+    <aside class="toc" aria-label="Table of contents">{% block toc %}{% endblock %}</aside>
+  </div>
+</body>
+</html>

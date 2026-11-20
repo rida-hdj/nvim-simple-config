@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Keymaps - nvim-simple-config</title>
+  <link rel="stylesheet" href="https://rida-hdj.github.io/nvim-simple-config/style.css">
+</head>
+<body>
+  
+  
+  
+  
+
+  <input class="menu-toggle" type="checkbox" id="menu" aria-controls="nav">
+  <header>
+    <a href="https://rida-hdj.github.io/nvim-simple-config/">nvim-simple-config</a>
+    <label for="menu">menu</label>
+  </header>
+
+  
+  <nav class="projects" aria-label="Projects">
+    
+    <a href="https://rida-hdj.github.io/nvim-simple-config/">home</a> | 
+    
+    <a href="https://rida-hdj.github.io/nvim-simple-config/docs/" aria-current="page">docs</a>
+    
+  </nav>
+  
+
+  <div class="layout">
+    <nav id="nav" aria-label="Pages">
+      <ul>
+        <li><a href="https://rida-hdj.github.io/nvim-simple-config/docs/">Documentation</a></li>
+        
+        <li><a href="https://rida-hdj.github.io/nvim-simple-config/docs/install/">Installation</a></li>
+        
+        <li><a href="https://rida-hdj.github.io/nvim-simple-config/docs/keymaps/" aria-current="page">Keymaps</a></li>
+        
+        <li><a href="https://rida-hdj.github.io/nvim-simple-config/docs/plugins/">Plugins</a></li>
+        
+      </ul>
+    </nav>
+    <main>
+<h1>Keymaps</h1>
+<p>All keyboard shortcuts are designed to be intuitive and consistent. The <code>Space</code> key acts as the leader key for most custom mappings.</p>
+<blockquote>
+<p><strong>Note:</strong> Shortcuts that use <code>fd</code> require the <a rel="external" href="https://github.com/sharkdp/fd">fd</a> tool to be installed on your system.</p>
+</blockquote>
+<h2 id="window-split-management">Window &amp; Split Management</h2>
+<h3 id="create-splits">Create Splits</h3>
+<p>Open new editing areas horizontally or vertically.</p>
+<ul>
+<li><code>Space + v</code> — <strong>Vertical split</strong>: opens a new vertical split</li>
+<li><code>Space + h</code> — <strong>Horizontal split</strong>: opens a new horizontal split</li>
+<li><code>Space + q</code> — <strong>Close buffer</strong>: deletes the current buffer, force-closes a terminal buffer, or quits Neovim when it is the last buffer</li>
+</ul>
+<h3 id="navigate-between-splits">Navigate Between Splits</h3>
+<p>Move the cursor between open splits using directional keys.</p>
+<ul>
+<li><code>Ctrl + h</code> — Move to left split</li>
+<li><code>Ctrl + j</code> — Move to bottom split</li>
+<li><code>Ctrl + k</code> — Move to top split</li>
+<li><code>Ctrl + l</code> — Move to right split</li>
+</ul>
+<h3 id="resize-splits">Resize Splits</h3>
+<p>Adjust the size of the active split.</p>
+<ul>
+<li><code>Alt + ↑</code> — Increase split height by 2 rows</li>
+<li><code>Alt + ↓</code> — Decrease split height by 2 rows</li>
+<li><code>Alt + ←</code> — Increase split width by 4 columns</li>
+<li><code>Alt + →</code> — Decrease split width by 4 columns</li>
+</ul>
+<h2 id="buffers">Buffers</h2>
+<h3 id="navigate-buffers">Navigate Buffers</h3>
+<p>Cycle through open buffers without closing them.</p>
+<ul>
+<li><code>Tab</code> — Next buffer</li>
+<li><code>Shift + Tab</code> — Previous buffer</li>
+</ul>
+<h2 id="integrated-terminal">Integrated Terminal</h2>
+<h3 id="open-terminal">Open Terminal</h3>
+<p>Launch a terminal inside Neovim with <code>toggleterm.nvim</code>.</p>
+<ul>
+<li><code>Ctrl + t</code> — <strong>Toggle terminal</strong>: opens a horizontal terminal 10 rows tall in insert mode; pressing it again hides it</li>
+</ul>
+<h3 id="exit-terminal-mode">Exit Terminal Mode</h3>
+<p>Return to normal mode when the terminal is focused.</p>
+<ul>
+<li><code>Esc</code> — Exit terminal mode</li>
+</ul>
+<h2 id="dashboard">Dashboard</h2>
+<p>The <code>snacks.nvim</code> dashboard accepts these keys on the start screen.</p>
+<ul>
+<li><code>1</code> — Find file</li>
+<li><code>2</code> — New file</li>
+<li><code>3</code> — Recent files</li>
+<li><code>4</code> — Recent projects</li>
+<li><code>5</code> — Find text</li>
+<li><code>6</code> — LazyGit</li>
+<li><code>7</code> — Lazy</li>
+<li><code>8</code> — Keymaps</li>
+<li><code>q</code> — Quit</li>
+</ul>
+<h2 id="code-execution">Code Execution</h2>
+<p>Run code directly from the editor with <code>code_runner.nvim</code>.</p>
+<ul>
+<li><code>Space + r</code> — <strong>Run code</strong>: executes the current file in a terminal</li>
+</ul>
+<p>Commands are configured for HTML, TypeScript, Python, Rust, and C/C++.</p>
+<h2 id="git-integration">Git Integration</h2>
+<h3 id="lazygit">Lazygit</h3>
+<p>Open the Lazygit terminal UI inside Neovim.</p>
+<ul>
+<li><code>Space + lg</code> — <strong>Open Lazygit</strong>: opens Lazygit in a floating window</li>
+</ul>
+<h2 id="file-actions">File Actions</h2>
+<ul>
+<li><code>Ctrl + s</code> — <strong>Save file</strong>: saves the current buffer</li>
+</ul>
+<h2 id="window-actions">Window Actions</h2>
+<ul>
+<li><code>Ctrl + q</code> — <strong>Close buffer</strong>: deletes the current buffer, force-closes a terminal buffer, or quits Neovim when it is the last buffer</li>
+</ul>
+<h2 id="telescope-fuzzy-finder">Telescope (Fuzzy Finder)</h2>
+<p>Fast file searching and navigation powered by Telescope.</p>
+<blockquote>
+<p><strong>Requirement:</strong> The <code>fd</code> command must be installed for file finding features.</p>
+</blockquote>
+<ul>
+<li><code>Space + f</code> — <strong>Find files</strong>: fuzzy search files by name in the project</li>
+<li><code>Space + g</code> — <strong>Live grep</strong>: search text content across all project files</li>
+<li><code>Space + b</code> — <strong>List open buffers</strong>: switch between currently open buffers</li>
+</ul>
+<h2 id="neotree-file-explorer">Neotree (File Explorer)</h2>
+<p>Browse and manage project files with a sidebar tree view.</p>
+<ul>
+<li><code>Space + e</code> — <strong>Toggle Neotree</strong>: opens or closes the file explorer panel</li>
+</ul>
+<h2 id="language-server-protocol-lsp">Language Server Protocol (LSP)</h2>
+<p>Intelligent code features powered by language servers.</p>
+<blockquote>
+<p><strong>Requirement:</strong> The appropriate language server must be installed on your system for each file type.</p>
+</blockquote>
+<h3 id="core-lsp-actions">Core LSP Actions</h3>
+<ul>
+<li><code>Ctrl + n</code> — <strong>Rename symbol</strong>: rename a variable, function, or class across all files</li>
+<li><code>Ctrl + a</code> — <strong>Code actions</strong>: show available code actions (fixes, refactors, etc.)</li>
+<li><code>Ctrl + f</code> — <strong>Format buffer</strong>: auto-format the entire buffer asynchronously using the language server</li>
+</ul>
+<h3 id="completion-menu">Completion Menu</h3>
+<p>Navigate the autocompletion popup.</p>
+<ul>
+<li><code>Tab</code> — Confirm the highlighted completion and trigger the next completion</li>
+<li><code>Shift + Tab</code> — Move to the next completion item</li>
+</ul>
+<blockquote>
+<p><strong>Note:</strong> This config maps <code>Shift + Tab</code> to the next completion item, not the previous one.</p>
+</blockquote>
+<h3 id="diagnostics">Diagnostics</h3>
+<p>Navigate between errors, warnings, and hints reported by the LSP.</p>
+<ul>
+<li><code>[ g</code> — <strong>Previous diagnostic</strong>: jump to the previous diagnostic in the file</li>
+<li><code>] g</code> — <strong>Next diagnostic</strong>: jump to the next diagnostic in the file</li>
+<li><code>Ctrl + e</code> — <strong>Show diagnostic popup</strong>: display full details of the diagnostic under the cursor</li>
+</ul>
+<h2 id="editing-enhancements">Editing Enhancements</h2>
+<h3 id="better-search-navigation">Better Search Navigation</h3>
+<p>Improve the default search experience by centering results.</p>
+<ul>
+<li><code>n</code> — <strong>Next search result</strong>: jump to the next match and center on screen</li>
+<li><code>N</code> — <strong>Previous search result</strong>: jump to the previous match and center on screen</li>
+</ul>
+<h3 id="visual-mode-indentation">Visual Mode – Indentation</h3>
+<p>Adjust indentation while text is selected.</p>
+<ul>
+<li><code>Ctrl + h</code> — <strong>Indent left</strong>: decrease indent of selected lines</li>
+<li><code>Ctrl + l</code> — <strong>Indent right</strong>: increase indent of selected lines</li>
+</ul>
+<h3 id="visual-mode-move-lines">Visual Mode – Move Lines</h3>
+<p>Shift selected lines up or down without leaving visual mode.</p>
+<ul>
+<li><code>Ctrl + j</code> — <strong>Move selection down</strong>: shift selected lines downward</li>
+<li><code>Ctrl + k</code> — <strong>Move selection up</strong>: shift selected lines upward</li>
+</ul>
+<h2 id="markdown">Markdown</h2>
+<p>Enhanced editing for markdown files when using <code>render-markdown.nvim</code>.</p>
+<h3 id="render-markdown">Render Markdown</h3>
+<p>Toggle the visual rendering of markdown elements.</p>
+<ul>
+<li><code>Space + md</code> — <strong>Toggle markdown render</strong>: enable or disable markdown rendering</li>
+</ul>
+<h2 id="live-server">Live Server</h2>
+<p>Live reload HTML, CSS, and JavaScript with <code>live-server.nvim</code>. The configured server listens on <code>127.0.0.1:8080</code>.</p>
+<h3 id="commands">Commands</h3>
+<ul>
+<li><code>:LiveServerStart</code> — Start live server in the current directory</li>
+<li><code>:LiveServerStart ~/projects/my-website</code> — Start live server in a specific directory</li>
+<li><code>:LiveServerToggle</code> — Switch the current project's server on or off</li>
+<li><code>:LiveServerStop</code> — Stop the server</li>
+</ul>
+
+</main>
+    <aside class="toc" aria-label="Table of contents">
+
+<ul>
+  
+  <li><a href="https://rida-hdj.github.io/nvim-simple-config/docs/keymaps/#window-split-management">Window &amp; Split Management</a>
+    
+    <ul><li><a href="https://rida-hdj.github.io/nvim-simple-config/docs/keymaps/#create-splits">Create Splits</a></li></ul>
+    
+    <ul><li><a href="https://rida-hdj.github.io/nvim-simple-config/docs/keymaps/#navigate-between-splits">Navigate Between Splits</a></li></ul>
+    
+    <ul><li><a href="https://rida-hdj.github.io/nvim-simple-config/docs/keymaps/#resize-splits">Resize Splits</a></li></ul>
+    
+  </li>
+  
+  <li><a href="https://rida-hdj.github.io/nvim-simple-config/docs/keymaps/#buffers">Buffers</a>
+    
+    <ul><li><a href="https://rida-hdj.github.io/nvim-simple-config/docs/keymaps/#navigate-buffers">Navigate Buffers</a></li></ul>
+    
+  </li>
+  
+  <li><a href="https://rida-hdj.github.io/nvim-simple-config/docs/keymaps/#integrated-terminal">Integrated Terminal</a>
+    
+    <ul><li><a href="https://rida-hdj.github.io/nvim-simple-config/docs/keymaps/#open-terminal">Open Terminal</a></li></ul>
+    
+    <ul><li><a href="https://rida-hdj.github.io/nvim-simple-config/docs/keymaps/#exit-terminal-mode">Exit Terminal Mode</a></li></ul>
+    
+  </li>
+  
+  <li><a href="https://rida-hdj.github.io/nvim-simple-config/docs/keymaps/#dashboard">Dashboard</a>
+    
+  </li>
+  
+  <li><a href="https://rida-hdj.github.io/nvim-simple-config/docs/keymaps/#code-execution">Code Execution</a>
+    
+  </li>
+  
+  <li><a href="https://rida-hdj.github.io/nvim-simple-config/docs/keymaps/#git-integration">Git Integration</a>
+    
+    <ul><li><a href="https://rida-hdj.github.io/nvim-simple-config/docs/keymaps/#lazygit">Lazygit</a></li></ul>
+    
+  </li>
+  
+  <li><a href="https://rida-hdj.github.io/nvim-simple-config/docs/keymaps/#file-actions">File Actions</a>
+    
+  </li>
+  
+  <li><a href="https://rida-hdj.github.io/nvim-simple-config/docs/keymaps/#window-actions">Window Actions</a>
+    
+  </li>
+  
+  <li><a href="https://rida-hdj.github.io/nvim-simple-config/docs/keymaps/#telescope-fuzzy-finder">Telescope (Fuzzy Finder)</a>
+    
+  </li>
+  
+  <li><a href="https://rida-hdj.github.io/nvim-simple-config/docs/keymaps/#neotree-file-explorer">Neotree (File Explorer)</a>
+    
+  </li>
+  
+  <li><a href="https://rida-hdj.github.io/nvim-simple-config/docs/keymaps/#language-server-protocol-lsp">Language Server Protocol (LSP)</a>
+    
+    <ul><li><a href="https://rida-hdj.github.io/nvim-simple-config/docs/keymaps/#core-lsp-actions">Core LSP Actions</a></li></ul>
+    
+    <ul><li><a href="https://rida-hdj.github.io/nvim-simple-config/docs/keymaps/#completion-menu">Completion Menu</a></li></ul>
+    
+    <ul><li><a href="https://rida-hdj.github.io/nvim-simple-config/docs/keymaps/#diagnostics">Diagnostics</a></li></ul>
+    
+  </li>
+  
+  <li><a href="https://rida-hdj.github.io/nvim-simple-config/docs/keymaps/#editing-enhancements">Editing Enhancements</a>
+    
+    <ul><li><a href="https://rida-hdj.github.io/nvim-simple-config/docs/keymaps/#better-search-navigation">Better Search Navigation</a></li></ul>
+    
+    <ul><li><a href="https://rida-hdj.github.io/nvim-simple-config/docs/keymaps/#visual-mode-indentation">Visual Mode – Indentation</a></li></ul>
+    
+    <ul><li><a href="https://rida-hdj.github.io/nvim-simple-config/docs/keymaps/#visual-mode-move-lines">Visual Mode – Move Lines</a></li></ul>
+    
+  </li>
+  
+  <li><a href="https://rida-hdj.github.io/nvim-simple-config/docs/keymaps/#markdown">Markdown</a>
+    
+    <ul><li><a href="https://rida-hdj.github.io/nvim-simple-config/docs/keymaps/#render-markdown">Render Markdown</a></li></ul>
+    
+  </li>
+  
+  <li><a href="https://rida-hdj.github.io/nvim-simple-config/docs/keymaps/#live-server">Live Server</a>
+    
+    <ul><li><a href="https://rida-hdj.github.io/nvim-simple-config/docs/keymaps/#commands">Commands</a></li></ul>
+    
+  </li>
+  
+</ul>
+
+</aside>
+  </div>
+</body>
+</html>

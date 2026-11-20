@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Installation - nvim-simple-config</title>
+  <link rel="stylesheet" href="https://rida-hdj.github.io/nvim-simple-config/style.css">
+</head>
+<body>
+  
+  
+  
+  
+
+  <input class="menu-toggle" type="checkbox" id="menu" aria-controls="nav">
+  <header>
+    <a href="https://rida-hdj.github.io/nvim-simple-config/">nvim-simple-config</a>
+    <label for="menu">menu</label>
+  </header>
+
+  
+  <nav class="projects" aria-label="Projects">
+    
+    <a href="https://rida-hdj.github.io/nvim-simple-config/">home</a> | 
+    
+    <a href="https://rida-hdj.github.io/nvim-simple-config/docs/" aria-current="page">docs</a>
+    
+  </nav>
+  
+
+  <div class="layout">
+    <nav id="nav" aria-label="Pages">
+      <ul>
+        <li><a href="https://rida-hdj.github.io/nvim-simple-config/docs/">Documentation</a></li>
+        
+        <li><a href="https://rida-hdj.github.io/nvim-simple-config/docs/install/" aria-current="page">Installation</a></li>
+        
+        <li><a href="https://rida-hdj.github.io/nvim-simple-config/docs/keymaps/">Keymaps</a></li>
+        
+        <li><a href="https://rida-hdj.github.io/nvim-simple-config/docs/plugins/">Plugins</a></li>
+        
+      </ul>
+    </nav>
+    <main>
+<h1>Installation</h1>
+<h2 id="requirements">Requirements</h2>
+<p>Before installing, make sure the following dependencies are available on your system.</p>
+<h3 id="system-dependencies">System Dependencies</h3>
+<table><thead><tr><th>Tool</th><th>Purpose</th></tr></thead><tbody>
+<tr><td><code>git</code></td><td>Cloning the repository and installing plugins</td></tr>
+<tr><td><code>curl</code></td><td>Downloading external resources</td></tr>
+<tr><td><code>unzip</code></td><td>Extracting compressed files</td></tr>
+<tr><td><code>gcc</code></td><td>Compiling native modules</td></tr>
+<tr><td><code>make</code></td><td>Building dependencies</td></tr>
+</tbody></table>
+<h3 id="runtime-dependencies">Runtime Dependencies</h3>
+<table><thead><tr><th>Tool</th><th>Purpose</th></tr></thead><tbody>
+<tr><td><code>Node.js</code></td><td>Required by several plugins and LSP servers</td></tr>
+<tr><td><code>fd</code></td><td>Fast file finder used by Telescope</td></tr>
+<tr><td><code>ripgrep</code></td><td>Fast text search used by Telescope</td></tr>
+</tbody></table>
+<h3 id="language-server-protocol-lsp">Language Server Protocol (LSP)</h3>
+<p>Install the appropriate language servers for the languages you work with. Each server provides IDE-like features such as autocomplete, go-to-definition, and diagnostics. The config enables these servers with <code>vim.lsp.enable</code>:</p>
+<table><thead><tr><th>Server</th><th>Language</th></tr></thead><tbody>
+<tr><td><code>lua_ls</code></td><td>Lua</td></tr>
+<tr><td><code>clangd</code></td><td>C / C++</td></tr>
+<tr><td><code>pyright</code></td><td>Python</td></tr>
+<tr><td><code>rust_analyzer</code></td><td>Rust</td></tr>
+<tr><td><code>html</code></td><td>HTML</td></tr>
+<tr><td><code>cssls</code></td><td>CSS</td></tr>
+<tr><td><code>ts_ls</code></td><td>JavaScript / TypeScript</td></tr>
+<tr><td><code>nil_ls</code></td><td>Nix</td></tr>
+<tr><td><code>marksman</code></td><td>Markdown</td></tr>
+</tbody></table>
+<h2 id="backup-existing-config">Backup Existing Config</h2>
+<p>If you already have a Neovim configuration, back it up before proceeding. This ensures you can restore it later if needed.</p>
+<h3 id="linux-macos">Linux / macOS</h3>
+<pre class="giallo" style="color: #BFBDB6; background-color: #0D1017;" ><code data-lang="shellscript"><span class="giallo-l"><span style="color: #59C2FF;">mv</span><span style="color: #AAD94C;"> ~/.config/nvim ~/.config/nvim_backup</span></span></code></pre><h3 id="windows-powershell">Windows (PowerShell)</h3>
+<pre class="giallo" style="color: #BFBDB6; background-color: #0D1017;" ><code data-lang="powershell"><span class="giallo-l"><span style="color: #F07178;">Move-Item</span><span> $env:LOCALAPPDATA\nvim $env:LOCALAPPDATA\nvim_backup</span></span></code></pre><h2 id="installation">Installation</h2>
+<p>Clone the repository into your Neovim configuration directory.</p>
+<h3 id="linux-macos-1">Linux / macOS</h3>
+<pre class="giallo" style="color: #BFBDB6; background-color: #0D1017;" ><code data-lang="shellscript"><span class="giallo-l"><span style="color: #59C2FF;">git</span><span style="color: #AAD94C;"> clone</span><span style="color: #95E6CB;"> --depth</span><span style="color: #D2A6FF;"> 1</span><span style="color: #AAD94C;"> https://github.com/rida-hdj/nvim-simple-config.git ~/.config/nvim</span></span></code></pre><h3 id="windows-powershell-1">Windows (PowerShell)</h3>
+<pre class="giallo" style="color: #BFBDB6; background-color: #0D1017;" ><code data-lang="powershell"><span class="giallo-l"><span>git clone </span><span style="color: #F29668;">--</span><span>depth </span><span style="color: #D2A6FF;">1</span><span> https:</span><span style="color: #F29668;">//</span><span style="color: #F07178;">github.com</span><span style="color: #F29668;">/</span><span>rida</span><span style="color: #F29668;">-</span><span>hdj</span><span style="color: #F29668;">/</span><span>nvim</span><span style="color: #F29668;">-</span><span>simple</span><span style="color: #F29668;">-</span><span>config.git $env:LOCALAPPDATA\nvim</span></span></code></pre><h2 id="post-installation">Post-Installation</h2>
+<ol>
+<li>
+<p>Open Neovim to install <code>lazy.nvim</code> and all plugins automatically:</p>
+<pre class="giallo" style="color: #BFBDB6; background-color: #0D1017;" ><code data-lang="shellscript"><span class="giallo-l"><span style="color: #59C2FF;">nvim</span></span></code></pre></li>
+<li>
+<p>Wait for the plugin manager to finish installing dependencies and Tree-sitter parsers.</p>
+</li>
+<li>
+<p>Restart Neovim once installation is complete.</p>
+</li>
+<li>
+<p>Run <code>:Lazy</code> at any time to inspect, update, or clean the installed plugins.</p>
+</li>
+</ol>
+
+</main>
+    <aside class="toc" aria-label="Table of contents">
+
+<ul>
+  
+  <li><a href="https://rida-hdj.github.io/nvim-simple-config/docs/install/#requirements">Requirements</a>
+    
+    <ul><li><a href="https://rida-hdj.github.io/nvim-simple-config/docs/install/#system-dependencies">System Dependencies</a></li></ul>
+    
+    <ul><li><a href="https://rida-hdj.github.io/nvim-simple-config/docs/install/#runtime-dependencies">Runtime Dependencies</a></li></ul>
+    
+    <ul><li><a href="https://rida-hdj.github.io/nvim-simple-config/docs/install/#language-server-protocol-lsp">Language Server Protocol (LSP)</a></li></ul>
+    
+  </li>
+  
+  <li><a href="https://rida-hdj.github.io/nvim-simple-config/docs/install/#backup-existing-config">Backup Existing Config</a>
+    
+    <ul><li><a href="https://rida-hdj.github.io/nvim-simple-config/docs/install/#linux-macos">Linux / macOS</a></li></ul>
+    
+    <ul><li><a href="https://rida-hdj.github.io/nvim-simple-config/docs/install/#windows-powershell">Windows (PowerShell)</a></li></ul>
+    
+  </li>
+  
+  <li><a href="https://rida-hdj.github.io/nvim-simple-config/docs/install/#installation">Installation</a>
+    
+    <ul><li><a href="https://rida-hdj.github.io/nvim-simple-config/docs/install/#linux-macos-1">Linux / macOS</a></li></ul>
+    
+    <ul><li><a href="https://rida-hdj.github.io/nvim-simple-config/docs/install/#windows-powershell-1">Windows (PowerShell)</a></li></ul>
+    
+  </li>
+  
+  <li><a href="https://rida-hdj.github.io/nvim-simple-config/docs/install/#post-installation">Post-Installation</a>
+    
+  </li>
+  
+</ul>
+
+</aside>
+  </div>
+</body>
+</html>

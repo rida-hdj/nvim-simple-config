@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}{{ page.title }} - {{ config.title }}{% endblock %}
+{% block content %}
+<h1>{{ page.title }}</h1>
+{{ page.content | safe }}
+{% endblock %}
+{% block toc %}
+{% if page.toc %}
+<ul>
+  {% for h in page.toc %}
+  <li><a href="{{ h.permalink | safe }}">{{ h.title }}</a>
+    {% for c in h.children %}
+    <ul><li><a href="{{ c.permalink | safe }}">{{ c.title }}</a></li></ul>
+    {% endfor %}
+  </li>
+  {% endfor %}
+</ul>
+{% endif %}
+{% endblock %}
