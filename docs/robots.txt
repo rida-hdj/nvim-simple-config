@@ -1,4 +1,0 @@
-User-agent: *
-Disallow:
-Allow: /
-Sitemap: https://rida-hdj.github.io/nvim-simple-config/sitemap.xml
