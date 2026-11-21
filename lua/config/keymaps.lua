@@ -59,15 +59,11 @@ map("n", "<C-s>", ":w<CR>", opts)
 -- =============================
 -- Telescope
 -- =============================
-local ok, telescope = pcall(require, 'telescope.builtin')
-if not ok then
-    return
-end
 
 -- Keymaps
-vim.keymap.set('n', '<leader>f', telescope.find_files, { desc = 'Telescope find files' })
-vim.keymap.set('n', '<leader>g', telescope.live_grep, { desc = 'Telescope live grep' })
-vim.keymap.set('n', '<leader>b', telescope.buffers, { desc = 'Telescope buffers' })
+vim.keymap.set('n', '<leader>f', '<cmd>Telescope find_files<CR>', { desc = 'Telescope find files' })
+vim.keymap.set('n', '<leader>g', '<cmd>Telescope live_grep<CR>', { desc = 'Telescope live grep' })
+vim.keymap.set('n', '<leader>b', '<cmd>Telescope buffers<CR>', { desc = 'Telescope buffers' })
 
 -- =============================
 -- LSP
@@ -81,13 +77,26 @@ map("n", "<C-f>", function()
 end, opts)
 
 -- Diagnostics
-map("n", "[g", vim.diagnostic.goto_prev, opts)
-map("n", "]g", vim.diagnostic.goto_next, opts)
-map("n", "<C-e>", vim.diagnostic.open_float, opts)
+map("n", "<M-k>", function()
+    vim.diagnostic.jump({ count = -1 })
+end, opts)
+
+map("n", "<M-j>", function()
+    vim.diagnostic.jump({ count = 1 })
+end, opts)
+
+map("n", "<leader>dl", vim.diagnostic.setloclist, opts)
+
+-- Navigation / Documentation
+map("n", "gd", vim.lsp.buf.definition, opts)
+map("n", "gi", vim.lsp.buf.implementation, opts)
+map("n", "gr", vim.lsp.buf.references, opts)
 
 -- =============================
 -- EDITING
 -- =============================
+
+vim.keymap.set({"n", "v"}, "d", '"_d')
 
 -- Better search navigation
 map("n", "n", "nzzzv", opts)

@@ -53,7 +53,7 @@
 <ul>
 <li><code>Space + v</code> — <strong>Vertical split</strong>: opens a new vertical split</li>
 <li><code>Space + h</code> — <strong>Horizontal split</strong>: opens a new horizontal split</li>
-<li><code>Space + q</code> — <strong>Close buffer</strong>: deletes the current buffer, force-closes a terminal buffer, or quits Neovim when it is the last buffer</li>
+<li><code>Space + q</code> — <strong>Close split</strong>: closes the current split without deleting its buffer</li>
 </ul>
 <h3 id="navigate-between-splits">Navigate Between Splits</h3>
 <p>Move the cursor between open splits using directional keys.</p>
@@ -153,16 +153,23 @@
 <ul>
 <li><code>Tab</code> — Confirm the highlighted completion and trigger the next completion</li>
 <li><code>Shift + Tab</code> — Move to the next completion item</li>
+<li><code>↓</code>, <code>↑</code>, <code>Ctrl + j</code>, <code>Ctrl + k</code> — Keep their default behavior in the completion popup</li>
 </ul>
 <blockquote>
 <p><strong>Note:</strong> This config maps <code>Shift + Tab</code> to the next completion item, not the previous one.</p>
 </blockquote>
+<h3 id="navigation-documentation">Navigation / Documentation</h3>
+<ul>
+<li><code>gd</code> — <strong>Go to definition</strong>: jump to the definition of the symbol under the cursor</li>
+<li><code>gi</code> — <strong>Go to implementation</strong>: jump to the implementation of the symbol under the cursor</li>
+<li><code>gr</code> — <strong>Show references</strong>: list all references to the symbol under the cursor</li>
+</ul>
 <h3 id="diagnostics">Diagnostics</h3>
 <p>Navigate between errors, warnings, and hints reported by the LSP.</p>
 <ul>
-<li><code>[ g</code> — <strong>Previous diagnostic</strong>: jump to the previous diagnostic in the file</li>
-<li><code>] g</code> — <strong>Next diagnostic</strong>: jump to the next diagnostic in the file</li>
-<li><code>Ctrl + e</code> — <strong>Show diagnostic popup</strong>: display full details of the diagnostic under the cursor</li>
+<li><code>Alt + k</code> — <strong>Previous diagnostic</strong>: jump to the previous diagnostic in the file</li>
+<li><code>Alt + j</code> — <strong>Next diagnostic</strong>: jump to the next diagnostic in the file</li>
+<li><code>Space + dl</code> — <strong>Location list</strong>: show all diagnostics for the current buffer in the location list</li>
 </ul>
 <h2 id="editing-enhancements">Editing Enhancements</h2>
 <h3 id="better-search-navigation">Better Search Navigation</h3>
@@ -189,6 +196,11 @@
 <p>Toggle the visual rendering of markdown elements.</p>
 <ul>
 <li><code>Space + md</code> — <strong>Toggle markdown render</strong>: enable or disable markdown rendering</li>
+</ul>
+<h2 id="delete-without-yanking">Delete Without Yanking</h2>
+<p>Delete text without overwriting the unnamed register.</p>
+<ul>
+<li><code>d</code> — <strong>Delete</strong>: in normal and visual mode, deletes into the black-hole register instead of yanking the deleted text</li>
 </ul>
 <h2 id="live-server">Live Server</h2>
 <p>Live reload HTML, CSS, and JavaScript with <code>live-server.nvim</code>. The configured server listens on <code>127.0.0.1:8080</code>.</p>
@@ -265,6 +277,8 @@
     
     <ul><li><a href="https://rida-hdj.github.io/nvim-simple-config/docs/keymaps/#completion-menu">Completion Menu</a></li></ul>
     
+    <ul><li><a href="https://rida-hdj.github.io/nvim-simple-config/docs/keymaps/#navigation-documentation">Navigation / Documentation</a></li></ul>
+    
     <ul><li><a href="https://rida-hdj.github.io/nvim-simple-config/docs/keymaps/#diagnostics">Diagnostics</a></li></ul>
     
   </li>
@@ -282,6 +296,10 @@
   <li><a href="https://rida-hdj.github.io/nvim-simple-config/docs/keymaps/#markdown">Markdown</a>
     
     <ul><li><a href="https://rida-hdj.github.io/nvim-simple-config/docs/keymaps/#render-markdown">Render Markdown</a></li></ul>
+    
+  </li>
+  
+  <li><a href="https://rida-hdj.github.io/nvim-simple-config/docs/keymaps/#delete-without-yanking">Delete Without Yanking</a>
     
   </li>
   

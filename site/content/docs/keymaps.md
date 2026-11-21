@@ -14,7 +14,7 @@ Open new editing areas horizontally or vertically.
 
 - `Space + v` — **Vertical split**: opens a new vertical split
 - `Space + h` — **Horizontal split**: opens a new horizontal split
-- `Space + q` — **Close buffer**: deletes the current buffer, force-closes a terminal buffer, or quits Neovim when it is the last buffer
+- `Space + q` — **Close split**: closes the current split without deleting its buffer
 
 ### Navigate Between Splits
 
@@ -129,16 +129,23 @@ Navigate the autocompletion popup.
 
 - `Tab` — Confirm the highlighted completion and trigger the next completion
 - `Shift + Tab` — Move to the next completion item
+- `↓`, `↑`, `Ctrl + j`, `Ctrl + k` — Keep their default behavior in the completion popup
 
 > **Note:** This config maps `Shift + Tab` to the next completion item, not the previous one.
+
+### Navigation / Documentation
+
+- `gd` — **Go to definition**: jump to the definition of the symbol under the cursor
+- `gi` — **Go to implementation**: jump to the implementation of the symbol under the cursor
+- `gr` — **Show references**: list all references to the symbol under the cursor
 
 ### Diagnostics
 
 Navigate between errors, warnings, and hints reported by the LSP.
 
-- `[ g` — **Previous diagnostic**: jump to the previous diagnostic in the file
-- `] g` — **Next diagnostic**: jump to the next diagnostic in the file
-- `Ctrl + e` — **Show diagnostic popup**: display full details of the diagnostic under the cursor
+- `Alt + k` — **Previous diagnostic**: jump to the previous diagnostic in the file
+- `Alt + j` — **Next diagnostic**: jump to the next diagnostic in the file
+- `Space + dl` — **Location list**: show all diagnostics for the current buffer in the location list
 
 ## Editing Enhancements
 
@@ -172,6 +179,12 @@ Enhanced editing for markdown files when using `render-markdown.nvim`.
 Toggle the visual rendering of markdown elements.
 
 - `Space + md` — **Toggle markdown render**: enable or disable markdown rendering
+
+## Delete Without Yanking
+
+Delete text without overwriting the unnamed register.
+
+- `d` — **Delete**: in normal and visual mode, deletes into the black-hole register instead of yanking the deleted text
 
 ## Live Server
 
